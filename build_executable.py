@@ -23,9 +23,17 @@ def main():
         print(f"✓ PyInstaller {PyInstaller.__version__} found")
     except ImportError:
         print("✗ PyInstaller not found!")
-        print("\nInstalling PyInstaller...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "pyinstaller"])
-        print("✓ PyInstaller installed")
+        print("\nInstalling PyInstaller (user mode)...")
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "--user", "pyinstaller"])
+            print("✓ PyInstaller installed")
+        except subprocess.CalledProcessError:
+            print(f"\n{RED}Failed to install PyInstaller!{RESET}")
+            print("\nPlease install manually:")
+            print("  pip install --user pyinstaller")
+            print("  OR")
+            print("  pipx install pyinstaller")
+            sys.exit(1)
     
     # Determine platform
     system = platform.system()
