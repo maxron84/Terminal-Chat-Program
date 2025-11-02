@@ -156,9 +156,9 @@ This project currently uses **only Python stdlib**. If you need external package
 1. **Update**: Ensure your branch is up to date with main
 2. **Test**: All tests pass
 3. **Document**: Update relevant documentation
-4. **Review**: Request review from maintainers
-5. **Respond**: Address review comments
-6. **Merge**: Maintainers will merge when approved
+4. **Submit**: Open a pull request
+5. **Respond**: Address any review comments
+6. **Patience**: PRs will be reviewed as time permits
 
 ### PR Checklist
 
@@ -194,7 +194,7 @@ Contributors will be:
 - **Issues**: For bugs and feature requests
 - **Discussions**: For questions and ideas
 - **Pull Requests**: For code contributions
-- **Email**: For private/security matters
+- **Security**: Use GitHub Security Advisories
 
 ## ⚖️ Code of Conduct
 

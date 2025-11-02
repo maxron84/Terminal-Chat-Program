@@ -47,20 +47,18 @@ This application should **NOT be deployed on the public internet** without signi
 If you discover a security vulnerability, please:
 
 ### DO:
-1. **Email privately** to: security@yourproject.com (update this)
+1. **Open a private security advisory** on GitHub (Security → Advisories → New draft)
 2. Include:
    - Description of the vulnerability
    - Steps to reproduce
    - Potential impact
    - Suggested fix (if any)
-3. Allow 48 hours for initial response
-4. Give us reasonable time to fix before public disclosure
+3. Give maintainers reasonable time to assess and fix before public disclosure
 
 ### DON'T:
 - ❌ Open public GitHub issues for security vulnerabilities
 - ❌ Post on social media or forums
 - ❌ Exploit the vulnerability maliciously
-- ❌ Share with others before we've had time to fix
 
 ## 🛡️ Security Best Practices
 
@@ -182,15 +180,13 @@ Current security level: **⚠️ Private Network Only**
 
 ## ⚖️ Responsible Disclosure
 
-We follow responsible disclosure principles:
+This project follows responsible disclosure principles:
 
-1. **Report received** - We acknowledge within 48 hours
-2. **Assessment** - We evaluate severity and impact
-3. **Fix development** - We create and test a fix
-4. **Release** - We deploy the fix
-5. **Disclosure** - We publicly disclose with credit (if desired)
-
-Typical timeline: 7-30 days depending on severity.
+1. **Report** - Use GitHub Security Advisories
+2. **Assessment** - Maintainers evaluate severity and impact
+3. **Fix** - Develop and test a solution
+4. **Release** - Deploy the fix
+5. **Disclosure** - Public disclosure with contributor credit (if desired)
 
 ## 🏆 Security Hall of Fame
 
@@ -200,7 +196,7 @@ Contributors who responsibly disclose vulnerabilities will be listed here (with 
 
 ## 📧 Contact
 
-- **Security Issues**: security@yourproject.com (update this)
+- **Security Issues**: GitHub Security Advisories (preferred)
 - **General Issues**: GitHub Issues
 - **Questions**: GitHub Discussions
 
