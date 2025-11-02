@@ -122,15 +122,17 @@ Once connected, simply type messages and press Enter:
 
 ### Commands
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/upload <file>` | Upload file (public) | `/upload report.pdf` |
-| `/upload <file> @user` | Upload file privately | `/upload contract.pdf @Bob` |
-| `/download <file>` | Download file | `/download report.pdf` |
-| `/list` | List shared files | `/list` |
-| `/inbox` | List received files | `/inbox` |
-| `/outbox` | List files ready to upload | `/outbox` |
-| `/quit` | Exit chat | `/quit` |
+| Command | Description | Example | Available To |
+|---------|-------------|---------|--------------|
+| `/upload <file>` | Upload file (public) | `/upload report.pdf` | All users |
+| `/upload <file> @user` | Upload file privately | `/upload contract.pdf @Bob` | All users |
+| `/download <file>` | Download file from shared | `/download report.pdf` | All users |
+| `/list` | List shared files | `/list` | All users |
+| `/inbox` | List received private files | `/inbox` | All users |
+| `/outbox` | List files ready to upload | `/outbox` | All users |
+| `/quit` | Exit chat | `/quit` | All users |
+
+**Note:** The server (admin) can also receive private files from clients in its inbox folder!
 
 ### File Sharing Examples
 

@@ -41,8 +41,9 @@ class ChatServer:
         # Go from src/lib/server.py -> src/lib/ -> src/ -> project_root/
         project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         data_dir = os.path.join(project_root, 'data')
-        self.shared_folder = os.path.join(data_dir, "shared")
+        self.inbox_folder = os.path.join(data_dir, "inbox")
         self.outbox_folder = os.path.join(data_dir, "outbox")
+        self.shared_folder = os.path.join(data_dir, "shared")
         
         # Configure logging
         log_dir = "logs"
@@ -62,15 +63,19 @@ class ChatServer:
         metadata_file = os.path.join(data_dir, 'file_permissions.json')
         self.file_perms = FilePermissions(metadata_file)
         
-        # Create shared and outbox folders
-        os.makedirs(self.shared_folder, exist_ok=True)
+        # Create inbox, outbox, and shared folders
+        os.makedirs(self.inbox_folder, exist_ok=True)
         os.makedirs(self.outbox_folder, exist_ok=True)
+        os.makedirs(self.shared_folder, exist_ok=True)
         self.logger.info(f"Server initialized - Username: {self.username}, Port: {self.port}")
-        self.logger.info(f"Shared folder: {self.shared_folder}/")
+        self.logger.info(f"Inbox folder: {self.inbox_folder}/")
         self.logger.info(f"Outbox folder: {self.outbox_folder}/")
-        print(f"{CYAN}[{timestamp()}] Shared folder: {self.shared_folder}/{RESET}",
+        self.logger.info(f"Shared folder: {self.shared_folder}/")
+        print(f"{CYAN}[{timestamp()}] Inbox folder: {self.inbox_folder}/{RESET}",
               file=sys.stderr)
         print(f"{CYAN}[{timestamp()}] Outbox folder: {self.outbox_folder}/{RESET}",
+              file=sys.stderr)
+        print(f"{CYAN}[{timestamp()}] Shared folder: {self.shared_folder}/{RESET}",
               file=sys.stderr)
         print(f"{CYAN}[{timestamp()}] Logging to: {log_filename}{RESET}",
               file=sys.stderr)
@@ -367,7 +372,7 @@ class ChatServer:
         """Handle server-side commands"""
         print(f"{YELLOW}[{timestamp()}] Server username: {self.username}{RESET}",
               file=sys.stderr)
-        print(f"{YELLOW}[{timestamp()}] Commands: /list, /outbox, /upload <file>, regular messages, /quit{RESET}",
+        print(f"{YELLOW}[{timestamp()}] Commands: /inbox, /outbox, /list, /upload <file>, /download <file>, regular messages, /quit{RESET}",
               file=sys.stderr)
         
         try:
@@ -389,6 +394,16 @@ class ChatServer:
                         else:
                             print(f"{YELLOW}Shared folder is empty{RESET}")
                         continue
+                    elif msg == '/inbox':
+                        files = os.listdir(self.inbox_folder)
+                        if files:
+                            print(f"{CYAN}Inbox contents:{RESET}")
+                            for f in files:
+                                size = os.path.getsize(os.path.join(self.inbox_folder, f))
+                                print(f"  - {f} ({size} bytes)")
+                        else:
+                            print(f"{YELLOW}Inbox is empty{RESET}")
+                        continue
                     elif msg == '/outbox':
                         files = os.listdir(self.outbox_folder)
                         if files:
@@ -398,6 +413,25 @@ class ChatServer:
                                 print(f"  - {f} ({size} bytes)")
                         else:
                             print(f"{YELLOW}Outbox is empty{RESET}")
+                        continue
+                    elif msg.startswith('/download '):
+                        filename = msg[11:].strip()
+                        filepath = os.path.join(self.shared_folder, filename)
+                        
+                        if not os.path.isfile(filepath):
+                            print(f"{RED}File not found in shared folder: {filename}{RESET}")
+                        else:
+                            # Check permissions
+                            can_download, reason = self.file_perms.can_download(filename, self.username)
+                            
+                            if not can_download:
+                                print(f"{RED}Cannot download '{filename}'. {reason}{RESET}")
+                            else:
+                                # Copy to inbox
+                                dest_path = os.path.join(self.inbox_folder, filename)
+                                shutil.copy(filepath, dest_path)
+                                self.logger.info(f"Server downloaded file to inbox: {filename}")
+                                print(f"{GREEN}[{timestamp()}] Downloaded {filename} to inbox{RESET}")
                         continue
                     elif msg.startswith('/upload '):
                         filename = msg[8:].strip()
