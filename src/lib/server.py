@@ -15,12 +15,13 @@ from datetime import datetime
 from .utils import BLUE, GREEN, YELLOW, RED, CYAN, MAGENTA, RESET, timestamp
 from .encryption import Encryption
 from .file_permissions import FilePermissions
+from .translations import Translator
 
 
 class ChatServer:
     """Multi-client chat server with shared folder"""
     
-    def __init__(self, port, password, username="Server"):
+    def __init__(self, port, password, username="Server", lang='en'):
         """
         Initialize chat server
         
@@ -28,10 +29,13 @@ class ChatServer:
             port (int): Port to listen on
             password (str): Encryption password
             username (str): Server username
+            lang (str): Language code ('en' or 'de')
         """
         self.port = port
         self.password = password
         self.username = username
+        self.lang = lang
+        self.t = Translator(lang)
         self.encryption = Encryption(password)
         self.clients = []  # List of (socket, address, username)
         self.clients_lock = threading.Lock()
@@ -404,24 +408,24 @@ class ChatServer:
                         break
                     elif msg == '/help':
                         print(f"{CYAN}╔══════════════════════════════════════════════════════════╗{RESET}")
-                        print(f"{CYAN}║                    AVAILABLE COMMANDS                    ║{RESET}")
+                        print(f"{CYAN}║                    {self.t.t('help_title'):^34}                    ║{RESET}")
                         print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
-                        print(f"{GREEN}/list{RESET}                → List files in shared folder")
-                        print(f"{GREEN}/inbox{RESET}               → List files in your inbox")
-                        print(f"{GREEN}/outbox{RESET}              → List files in your outbox")
-                        print(f"{GREEN}/upload <file>{RESET}       → Upload file to shared folder (public)")
-                        print(f"{MAGENTA}/upload <file> @user{RESET} → {MAGENTA}Send private file to specific user{RESET}")
-                        print(f"{GREEN}/download <file>{RESET}     → Download file from shared or inbox")
-                        print(f"{GREEN}/quit{RESET}                → Exit the chat")
-                        print(f"{GREEN}/help{RESET}                → Show this help message")
+                        print(f"{GREEN}{self.t.t('cmd_list')}{RESET}                → {self.t.t('help_list')}")
+                        print(f"{GREEN}{self.t.t('cmd_inbox')}{RESET}               → {self.t.t('help_inbox')}")
+                        print(f"{GREEN}{self.t.t('cmd_outbox')}{RESET}              → {self.t.t('help_outbox')}")
+                        print(f"{GREEN}{self.t.t('cmd_upload')} <file>{RESET}       → {self.t.t('help_upload')}")
+                        print(f"{MAGENTA}{self.t.t('cmd_upload')} <file> @user{RESET} → {MAGENTA}{self.t.t('help_upload_private')}{RESET}")
+                        print(f"{GREEN}{self.t.t('cmd_download')} <file>{RESET}     → {self.t.t('help_download')}")
+                        print(f"{GREEN}{self.t.t('cmd_quit')}{RESET}                → {self.t.t('help_quit')}")
+                        print(f"{GREEN}{self.t.t('cmd_help')}{RESET}                → {self.t.t('help_help')}")
                         print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
-                        print(f"{YELLOW}Regular messages:{RESET} Just type and press Enter to chat")
-                        print(f"{YELLOW}Files:{RESET} Place files in 'data/outbox/' before uploading")
+                        print(f"{YELLOW}{self.t.t('help_regular_msg')}{RESET} {self.t.t('help_regular_desc')}")
+                        print(f"{YELLOW}{self.t.t('help_files')}{RESET} {self.t.t('help_files_desc')}")
                         print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
-                        print(f"{MAGENTA}Private File Sharing:{RESET}")
-                        print(f"  Use @username to send files privately (only recipient can see)")
-                        print(f"  Example: {GREEN}/upload document.pdf @Alice{RESET}")
-                        print(f"  Recipient downloads with: {GREEN}/download document.pdf{RESET}")
+                        print(f"{MAGENTA}{self.t.t('help_private_title')}{RESET}")
+                        print(f"  {self.t.t('help_private_desc')}")
+                        print(f"  {self.t.t('help_private_example')} {GREEN}{self.t.t('cmd_upload')} document.pdf @Alice{RESET}")
+                        print(f"  {self.t.t('help_private_download')} {GREEN}{self.t.t('cmd_download')} document.pdf{RESET}")
                         print(f"{CYAN}╚══════════════════════════════════════════════════════════╝{RESET}")
                         continue
                     elif msg == '/list':

@@ -102,8 +102,8 @@ def main():
             print(f"{CYAN}{t.t('username')}:{RESET} {username}")
             print(f"{YELLOW}{t.t('share_password')}: {password}{RESET}\n")
             
-            # Run server
-            subprocess.run([sys.executable, chat_script, 'listen', port, password, username])
+            # Run server with language parameter
+            subprocess.run([sys.executable, chat_script, 'listen', port, password, username, '--lang', lang])
             
         else:
             # Client mode
@@ -117,8 +117,8 @@ def main():
             print(f"{CYAN}{t.t('server')}:{RESET} {host}:{port}")
             print(f"{CYAN}{t.t('username')}:{RESET} {username}\n")
             
-            # Run client
-            subprocess.run([sys.executable, chat_script, 'connect', host, port, password, username])
+            # Run client with language parameter
+            subprocess.run([sys.executable, chat_script, 'connect', host, port, password, username, '--lang', lang])
     
     except KeyboardInterrupt:
         print(f"\n{YELLOW}{t.t('cancelled')}{RESET}")
