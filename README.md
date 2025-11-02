@@ -3,6 +3,8 @@
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests](https://img.shields.io/badge/tests-27%20passed-brightgreen.svg)](tests/)
+[![GitHub release](https://img.shields.io/github/v/release/maxron84/vibe-cozy-chat.svg)](https://github.com/maxron84/vibe-cozy-chat/releases)
+[![GitHub stars](https://img.shields.io/github/stars/maxron84/vibe-cozy-chat.svg?style=social)](https://github.com/maxron84/vibe-cozy-chat/stargazers)
 [![AI Generated](https://img.shields.io/badge/AI-Generated-purple.svg)](https://www.anthropic.com)
 
 A simple, secure, and feature-rich terminal-based chat application with end-to-end encryption, private file sharing, and multi-client support.
@@ -71,7 +73,7 @@ This application is designed for **private, trusted networks only** (home LANs, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vibe-cozy-chat.git
+git clone https://github.com/maxron84/vibe-cozy-chat.git
 cd vibe-cozy-chat
 
 # No dependencies needed! Pure Python 3.6+
@@ -420,8 +422,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/vibe-cozy-chat/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/vibe-cozy-chat/discussions)
+- **Issues**: [GitHub Issues](https://github.com/maxron84/vibe-cozy-chat/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/maxron84/vibe-cozy-chat/discussions)
 
 ## 🗺️ Roadmap
 

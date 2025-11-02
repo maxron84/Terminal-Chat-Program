@@ -5,6 +5,35 @@ All notable changes to Vibe Cozy Chat will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-11-02
+
+### Added
+- `/help` command for all users with formatted menu display
+- `/inbox` command for clients to view received files
+- Color-coded help menu with comprehensive command list
+- User-friendly command reference accessible in-app
+
+### Fixed
+- Fixed `src/data/` recreation bug in client path calculation
+- Client now correctly uses root `data/` folder (3 levels up instead of 2)
+- Prevented unwanted folder creation during execution
+
+### Changed
+- Reorganized documentation structure:
+  - `bin/` now contains quick reference cards (instructions.txt, anleitung.txt)
+  - `docs/` now contains detailed user manuals (USER_MANUAL.txt, BENUTZER_HANDBUCH.txt)
+- Updated all documentation to reference correct file paths
+- Updated launcher path references to `./bin/vibe-chat.py`
+- Improved user experience with clearer command organization
+
+### Documentation
+- Cross-references added between documentation files
+- README updated with new file paths and `/help` command
+- Command table updated with all available commands
+- All repository URLs updated to maxron84
+
+---
+
 ## [1.0.0] - 2025-11-02
 
 ### 🎉 Initial Release
@@ -153,6 +182,13 @@ This entire project (code, docs, tests, Docker configs) was created using:
 
 ## Version History
 
+### [1.1.0] - 2025-11-02
+- Added `/help` command with formatted menu
+- Fixed `src/data/` recreation bug
+- Reorganized documentation structure
+- Updated all repository URLs
+- 27 tests passing
+
 ### [1.0.0] - 2025-11-02
 - Initial public release
 - Complete feature set
@@ -164,7 +200,7 @@ This entire project (code, docs, tests, Docker configs) was created using:
 
 ## Links
 
-- [Repository](https://github.com/yourusername/vibe-cozy-chat)
+- [Repository](https://github.com/maxron84/vibe-cozy-chat)
 - [Documentation](docs/)
 - [Security Policy](SECURITY.md)
 - [Contributing](CONTRIBUTING.md)
