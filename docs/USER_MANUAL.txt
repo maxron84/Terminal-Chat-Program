@@ -25,7 +25,7 @@ Step 2: Navigate to the vibe-cozy-chat folder
   Type: cd /path/to/vibe-cozy-chat
 
 Step 3: Run the launcher
-  Type: ./bin/vibe-chat
+  Type: ./bin/vibe-chat.py
 
 That's it! The launcher will guide you through the rest!
 
@@ -116,7 +116,7 @@ Once connected, you can:
 ═══════════════════════════════════════════════════════════════════
 
 Server (Host):
-  $ ./bin/vibe-chat
+  $ ./bin/vibe-chat.py
   Choose mode: 1
   Port number [4444]: 4444
   Password: mysecret123
@@ -127,7 +127,7 @@ Server (Host):
   Shared folder is empty
   
 Client (Friend):
-  $ ./bin/vibe-chat
+  $ ./bin/vibe-chat.py
   Choose mode: 2
   Server IP address: 192.168.1.5
   Port number [4444]: 4444

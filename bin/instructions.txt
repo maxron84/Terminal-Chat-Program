@@ -1,0 +1,31 @@
+# ============================================
+# Vibe Cozy Chat - Quick Reference
+# ============================================
+#
+# LAUNCH:
+#   ./bin/vibe-chat.py
+#
+# Or directly with Python:
+#   python3 src/main.py listen <port> <password> [username]
+#   python3 src/main.py connect <ip> <port> <password> [username]
+#
+# COMMANDS IN CHAT:
+#   /upload <file>         → Upload to shared folder (public)
+#   /upload <file> @user   → Upload privately for specific user
+#   /download <file>       → Download from shared or inbox
+#   /list                  → List shared folder contents
+#   /inbox                 → List inbox contents
+#   /outbox                → List outbox contents
+#   /quit                  → Exit chat
+#   Ctrl+C                 → Exit chat
+#
+# FEATURES:
+# • Multi-client chat with AES-256 encryption
+# • Unique usernames (no duplicates)
+# • Public shared folder for all users
+# • Private file sharing via inbox/outbox
+# • Permission-based file access control
+# • Server can receive private files (@Admin)
+#
+# For detailed instructions, see: docs/USER_MANUAL.txt
+# ============================================
