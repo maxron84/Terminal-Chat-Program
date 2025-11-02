@@ -71,5 +71,24 @@ class Encryption:
         except subprocess.CalledProcessError as e:
             # Capture OpenSSL error for debugging
             error_msg = e.stderr.decode() if e.stderr else "No error message"
-            print(f"{RED}[OpenSSL Error] {error_msg}{RESET}", file=sys.stderr)
+            
+            # Check if it's a password mismatch (bad decrypt error)
+            if "bad decrypt" in error_msg.lower():
+                print(f"{RED}╔══════════════════════════════════════════════════════════╗{RESET}", file=sys.stderr)
+                print(f"{RED}║              ⚠️  PASSWORD MISMATCH DETECTED             ║{RESET}", file=sys.stderr)
+                print(f"{RED}╠══════════════════════════════════════════════════════════╣{RESET}", file=sys.stderr)
+                print(f"{RED}║ Cannot decrypt message - wrong password!                ║{RESET}", file=sys.stderr)
+                print(f"{RED}║                                                          ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ Your password does NOT match the server's password.     ║{RESET}", file=sys.stderr)
+                print(f"{RED}║                                                          ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ Solutions:                                               ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ 1. Disconnect (/quit) and reconnect with correct        ║{RESET}", file=sys.stderr)
+                print(f"{RED}║    password from server's .env file                      ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ 2. Ask server admin for the correct password            ║{RESET}", file=sys.stderr)
+                print(f"{RED}║                                                          ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ Note: This error will continue until you reconnect      ║{RESET}", file=sys.stderr)
+                print(f"{RED}║ with the correct password.                               ║{RESET}", file=sys.stderr)
+                print(f"{RED}╚══════════════════════════════════════════════════════════╝{RESET}", file=sys.stderr)
+            else:
+                print(f"{RED}[Decryption Error] {error_msg}{RESET}", file=sys.stderr)
             return None
