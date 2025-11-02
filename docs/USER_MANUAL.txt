@@ -10,7 +10,7 @@ just a few simple steps.
 ═══════════════════════════════════════════════════════════════════
 
 ✓ Python 3 installed (usually pre-installed on Mac/Linux)
-✓ The vibe-cozy-chat folder
+✓ The Terminal-Chat-Program folder
 ✓ A password to share with your friends
 
 ═══════════════════════════════════════════════════════════════════
@@ -21,8 +21,8 @@ Step 1: Open Terminal/Command Prompt
   • Mac/Linux: Search for "Terminal"
   • Windows: Search for "Command Prompt" or "PowerShell"
 
-Step 2: Navigate to the vibe-cozy-chat folder
-  Type: cd /path/to/vibe-cozy-chat
+Step 2: Navigate to the Terminal-Chat-Program folder
+  Type: cd /path/to/Terminal-Chat-Program
 
 Step 3: Run the launcher
   Type: ./bin/vibe-chat.py
@@ -97,7 +97,7 @@ Once connected, you can:
    • Look for something like 192.168.1.X
 
 2. Sharing Files:
-   • Create an "outbox" folder in vibe-cozy-chat
+   • Create an "outbox" folder in Terminal-Chat-Program
    • Place files you want to share in this folder
    • Use /upload or /send commands
 

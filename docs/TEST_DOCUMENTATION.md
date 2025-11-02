@@ -7,7 +7,7 @@ This document describes the test suite for the Cozy Secure Chat application. The
 ## Test File
 
 **File:** `test_chat.py`
-**Location:** `vibe-cozy-chat/test_chat.py`
+**Location:** `Terminal-Chat-Program/test_chat.py`
 **Lines of Code:** 340
 **Test Framework:** Python's built-in `unittest`
 
@@ -16,7 +16,7 @@ This document describes the test suite for the Cozy Secure Chat application. The
 ### Standard Execution
 
 ```bash
-cd vibe-cozy-chat
+cd Terminal-Chat-Program
 python3 test_chat.py
 ```
 
@@ -168,7 +168,7 @@ These tests are designed to be run in CI/CD pipelines:
 # Example GitHub Actions workflow
 - name: Run Tests
   run: |
-    cd vibe-cozy-chat
+    cd Terminal-Chat-Program
     python3 test_chat.py
 ```
 

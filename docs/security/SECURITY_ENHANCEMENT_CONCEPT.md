@@ -393,7 +393,7 @@ class Metrics:
 ## File Structure
 
 ```
-vibe-cozy-chat/
+Terminal-Chat-Program/
 ├── src/
 │   ├── lib/
 │   │   ├── __init__.py
