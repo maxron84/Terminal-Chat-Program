@@ -295,6 +295,43 @@ docker-compose up -d
 
 ## Troubleshooting
 
+### Container Keeps Restarting
+
+**Problem:** Container restarts repeatedly or shows `ContainerConfig` errors.
+
+**Solution:** Use the automated rebuild script:
+```bash
+./docker-rebuild.sh
+```
+
+Or manually:
+```bash
+# Stop everything
+docker-compose down
+
+# Remove corrupted container
+docker rm -f vibe-chat-server
+
+# Remove old image
+docker rmi vibe-chat:latest
+
+# Rebuild from scratch
+docker-compose build --no-cache
+
+# Start fresh
+docker-compose up -d
+```
+
+**Why this happens:**
+- Server was trying to read stdin in non-interactive mode (now fixed)
+- Environment variables weren't expanding properly (now fixed)
+- Old container state got corrupted
+
+**Recent Fixes (v1.1.0):**
+- ✅ Server now detects Docker/non-interactive mode automatically
+- ✅ Environment variables now expand correctly in docker-compose command
+- ✅ Containers start and run stably without restarts
+
 ### Container Won't Start
 
 ```bash
@@ -357,6 +394,121 @@ chmod 777 logs
 # Check container logs
 docker exec -it vibe-chat-server ls -la /app/logs
 ```
+
+### Connecting from Other Computers
+
+**Server Setup (Host Machine):**
+
+1. **Find your server's IP address:**
+```bash
+# On Linux/Mac
+hostname -I | awk '{print $1}'
+
+# Or
+ip addr show | grep "inet " | grep -v 127.0.0.1
+
+# On Windows
+ipconfig | findstr IPv4
+```
+
+2. **Ensure Docker port is accessible:**
+```bash
+# The default docker-compose.yml already exposes port 4444
+# Check if it's listening:
+netstat -ln | grep 4444
+
+# Or with Docker:
+docker port vibe-chat-server
+```
+
+3. **Configure firewall (if needed):**
+```bash
+# Allow port 4444 from local network only
+sudo ufw allow from 192.168.1.0/24 to any port 4444
+
+# Or allow from specific IPs
+sudo ufw allow from 192.168.1.50 to any port 4444 proto tcp
+```
+
+**Client Setup (Other Computers):**
+
+1. **Get server information:**
+   - Server IP: e.g., `192.168.1.100`
+   - Port: `4444` (default)
+   - Password: from server's `.env` file
+
+2. **Connect using the launcher:**
+```bash
+# On client machine
+python3 bin/vibe-chat.py
+
+# When prompted:
+# - Enter server IP: 192.168.1.100
+# - Enter port: 4444
+# - Enter password: [server's CHAT_PASSWORD]
+# - Enter your username: Alice
+```
+
+3. **Or connect directly:**
+```bash
+python3 src/main.py connect 192.168.1.100 4444 PASSWORD Alice
+```
+
+**Network Requirements:**
+- ✅ Both machines on same network (LAN, VPN, etc.)
+- ✅ Port 4444 accessible (no firewall blocking)
+- ✅ Same password on all clients
+- ❌ NOT for public internet without VPN/security layer
+
+**Testing Connection:**
+
+```bash
+# From client machine, test if server is reachable:
+telnet 192.168.1.100 4444
+
+# Or with nc:
+nc -zv 192.168.1.100 4444
+
+# Or with curl:
+curl -v telnet://192.168.1.100:4444
+```
+
+**Common Connection Issues:**
+
+| Issue | Solution |
+|-------|----------|
+| "Connection refused" | Check if server is running: `docker-compose ps` |
+| "Connection timeout" | Check firewall on server machine |
+| "Wrong password" | Verify password matches server's `.env` file |
+| "Can't resolve hostname" | Use IP address instead of hostname |
+
+**Example Multi-Machine Setup:**
+
+```
+Office Network (192.168.1.0/24):
+├── Server (192.168.1.100) - Docker container running
+├── Alice's laptop (192.168.1.50) - Python client
+├── Bob's desktop (192.168.1.75) - Python client
+└── Carol's tablet (192.168.1.120) - Python client (with Termux)
+
+All connect to: 192.168.1.100:4444
+All use same password from server's .env
+```
+
+**VPN Setup (for remote access):**
+
+If you need access from outside your local network:
+
+1. **Set up VPN (recommended):**
+   - Use WireGuard, OpenVPN, or Tailscale
+   - Connect to VPN first
+   - Then connect to chat server
+
+2. **Why not direct internet exposure:**
+   - No TLS/SSL for transport
+   - Single password for all users
+   - Designed for trusted networks only
+   - See [Security Assessment](security/SECURITY_ASSESSMENT.md)
 
 ---
 
@@ -570,8 +722,8 @@ Host (volumes):
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/vibe-cozy-chat/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/vibe-cozy-chat/discussions)
+- **Issues**: [GitHub Issues](https://github.com/maxron84/Terminal-Chat-Program/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/maxron84/Terminal-Chat-Program/discussions)
 - **Security**: See [SECURITY.md](../SECURITY.md)
 
 ---
