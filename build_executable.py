@@ -25,10 +25,25 @@ def main():
     print("=" * 60)
     
     # Check if PyInstaller is installed
+    pyinstaller_found = False
+    
+    # Try importing (works for pip/venv installs)
     try:
         import PyInstaller
         print(f"✓ PyInstaller {PyInstaller.__version__} found")
+        pyinstaller_found = True
     except ImportError:
+        # Try command (works for pipx installs)
+        try:
+            result = subprocess.run(["pyinstaller", "--version"],
+                                  capture_output=True, text=True, check=True)
+            version = result.stdout.strip()
+            print(f"✓ PyInstaller {version} found (via pipx)")
+            pyinstaller_found = True
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            pass
+    
+    if not pyinstaller_found:
         print("✗ PyInstaller not found!")
         print(f"\n{RED}ERROR: PyInstaller is required but not installed{RESET}")
         print(f"\n{YELLOW}This system has externally-managed Python.{RESET}")
