@@ -314,16 +314,16 @@ python3 src/main.py listen 4444 pass Admin
 
 ```bash
 # Build image
-docker build -t vibe-chat:dev .
+docker build -t terminal-chat:dev .
 
 # Run with live code mounting
 docker run -it --rm \
   -v $(pwd)/src:/app/src \
   -p 4444:4444 \
-  vibe-chat:dev listen 4444 pass Admin
+  terminal-chat:dev listen 4444 pass Admin
 
 # Run tests in container
-docker run --rm vibe-chat:dev python3 tests/test_chat.py
+docker run --rm terminal-chat:dev python3 tests/test_chat.py
 ```
 
 ### Running Tests

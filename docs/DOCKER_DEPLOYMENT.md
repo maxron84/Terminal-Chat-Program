@@ -545,7 +545,7 @@ docker-compose -f docker-compose.dev.yml up
 docker-compose -f docker-compose.dev.yml --profile clients up
 
 # Attach to client
-docker attach vibe-chat-client-1
+docker attach terminal-chat-client-1
 # Detach: Ctrl+P, Ctrl+Q
 ```
 
@@ -623,7 +623,7 @@ CMD ["listen", "4444", "changeMe", "Server"]
 
 Build:
 ```bash
-docker build -f Dockerfile.custom -t vibe-chat:custom .
+docker build -f Dockerfile.custom -t terminal-chat:custom .
 ```
 
 ### Multiple Servers
