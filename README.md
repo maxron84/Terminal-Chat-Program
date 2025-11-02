@@ -181,19 +181,20 @@ Terminal-Chat-Program/
 │   │   ├── server.py       # Multi-client server
 │   │   ├── client.py       # Chat client
 │   │   └── file_permissions.py  # Access control
-│   ├── modular/            # Modular entry point
-│   │   └── cozy_secure_chat_modular.py
-│   └── legacy/             # Original monolithic version
-│       └── cozy_secure_chat.py
+│   └── modular/            # Main entry point
+│       └── cozy_secure_chat_modular.py
 ├── tests/
 │   └── test_chat.py        # 27 unit & integration tests
 ├── docs/
-│   ├── README.md           # Technical documentation
-│   ├── MODULAR_STRUCTURE.md  # Architecture guide
-│   ├── TEST_DOCUMENTATION.md # Testing guide
-│   ├── usage_en.txt        # Command reference (EN)
-│   ├── usage_de.txt        # Befehlsreferenz (DE)
-│   └── security/           # Security documentation
+│   ├── CONTRIBUTING.md     # Contribution guidelines
+│   ├── SECURITY.md         # Security policy
+│   ├── CHANGELOG.md        # Version history
+│   ├── DOCKER_DEPLOYMENT.md # Docker guide
+│   ├── MODULAR_STRUCTURE.md # Architecture
+│   ├── TEST_DOCUMENTATION.md # Testing
+│   ├── usage_en.txt        # Commands (EN)
+│   ├── usage_de.txt        # Commands (DE)
+│   └── security/           # Security docs
 │       ├── SECURITY_ASSESSMENT.md
 │       └── SECURITY_ENHANCEMENT_CONCEPT.md
 ├── data/                   # User data (auto-created)
@@ -295,11 +296,8 @@ Contributions for additional languages welcome! See `docs/usage_en.txt` as templ
 # As library
 python3 -c "from src.lib import ChatServer, ChatClient"
 
-# Modular version
+# Direct execution
 python3 src/modular/cozy_secure_chat_modular.py listen 4444 pass Admin
-
-# Legacy version
-python3 src/legacy/cozy_secure_chat.py listen 4444 pass Admin
 ```
 
 ### Docker Development
