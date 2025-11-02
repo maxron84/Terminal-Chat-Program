@@ -37,8 +37,10 @@ class ChatServer:
         self.clients_lock = threading.Lock()
         self.running = True
         
-        # Data folders in project directory
-        data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data')
+        # Data folders in project root directory
+        # Go from src/lib/server.py -> src/lib/ -> src/ -> project_root/
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        data_dir = os.path.join(project_root, 'data')
         self.shared_folder = os.path.join(data_dir, "shared")
         self.outbox_folder = os.path.join(data_dir, "outbox")
         

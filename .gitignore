@@ -63,4 +63,4 @@ htmlcov/
 # Docker
 .env
 docker-compose.override.yml
-*.dockerignore.bak
+*.dockerignore.baksrc/data/
