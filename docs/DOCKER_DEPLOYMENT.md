@@ -90,8 +90,8 @@ openssl rand -hex 32
 
 ✅ **Data Persistence**
 - Named volumes (not local paths)
-- Shared files: `vibe-chat-shared`
-- Server logs: `vibe-chat-logs`
+- Shared files: `terminal-chat-shared`
+- Server logs: `terminal-chat-logs`
 
 ✅ **Security**
 - Required password validation
@@ -155,13 +155,13 @@ docker-compose logs > server-logs.txt
 docker-compose ps
 
 # Resource usage
-docker stats vibe-chat-server
+docker stats terminal-chat-server
 
 # Health status
-docker inspect vibe-chat-server --format='{{.State.Health.Status}}'
+docker inspect terminal-chat-server --format='{{.State.Health.Status}}'
 
 # Detailed health
-docker inspect vibe-chat-server --format='{{json .State.Health}}' | jq
+docker inspect terminal-chat-server --format='{{json .State.Health}}' | jq
 ```
 
 ### Updates
@@ -186,13 +186,13 @@ mkdir -p backups
 
 # Backup shared files
 docker run --rm \
-  -v vibe-chat-shared:/source:ro \
+  -v terminal-chat-shared:/source:ro \
   -v $(pwd)/backups:/backup \
   alpine tar czf /backup/shared-$(date +%Y%m%d-%H%M%S).tar.gz -C /source .
 
 # Backup logs
 docker run --rm \
-  -v vibe-chat-logs:/source:ro \
+  -v terminal-chat-logs:/source:ro \
   -v $(pwd)/backups:/backup \
   alpine tar czf /backup/logs-$(date +%Y%m%d-%H%M%S).tar.gz -C /source .
 ```
@@ -204,7 +204,7 @@ docker-compose down
 
 # Restore shared files
 docker run --rm \
-  -v vibe-chat-shared:/target \
+  -v terminal-chat-shared:/target \
   -v $(pwd)/backups:/backup \
   alpine tar xzf /backup/shared-YYYYMMDD-HHMMSS.tar.gz -C /target
 
@@ -310,10 +310,10 @@ Or manually:
 docker-compose down
 
 # Remove corrupted container
-docker rm -f vibe-chat-server
+docker rm -f terminal-chat-server
 
 # Remove old image
-docker rmi vibe-chat:latest
+docker rmi terminal-chat:latest
 
 # Rebuild from scratch
 docker-compose build --no-cache
@@ -356,7 +356,7 @@ ls -la data/
 docker-compose ps
 
 # Check health
-docker inspect vibe-chat-server --format='{{.State.Health.Status}}'
+docker inspect terminal-chat-server --format='{{.State.Health.Status}}'
 
 # Test port
 telnet localhost 4444
@@ -366,7 +366,7 @@ telnet localhost 4444
 
 ```bash
 # Check resources
-docker stats vibe-chat-server
+docker stats terminal-chat-server
 
 # Adjust in docker-compose.yml:
 deploy:
@@ -392,7 +392,7 @@ mkdir -p logs
 chmod 777 logs
 
 # Check container logs
-docker exec -it vibe-chat-server ls -la /app/logs
+docker exec -it terminal-chat-server ls -la /app/logs
 ```
 
 ### Connecting from Other Computers
@@ -418,7 +418,7 @@ ipconfig | findstr IPv4
 netstat -ln | grep 4444
 
 # Or with Docker:
-docker port vibe-chat-server
+docker port terminal-chat-server
 ```
 
 3. **Configure firewall (if needed):**
@@ -518,21 +518,21 @@ If you need access from outside your local network:
 
 ```bash
 # Build
-docker build -t vibe-chat:latest .
+docker build -t terminal-chat:latest .
 
 # Run server
 docker run -d \
-  --name vibe-chat-server \
+  --name terminal-chat-server \
   -p 4444:4444 \
-  -v vibe-chat-shared:/app/data/shared \
-  -v vibe-chat-logs:/app/logs \
+  -v terminal-chat-shared:/app/data/shared \
+  -v terminal-chat-logs:/app/logs \
   -e CHAT_PASSWORD=your_password \
-  vibe-chat:latest listen 4444 your_password Admin
+  terminal-chat:latest listen 4444 your_password Admin
 
 # Run client (interactive)
 docker run -it --rm \
   --network host \
-  vibe-chat:latest connect localhost 4444 your_password Alice
+  terminal-chat:latest connect localhost 4444 your_password Alice
 ```
 
 ### Development Setup
@@ -633,13 +633,13 @@ docker build -f Dockerfile.custom -t vibe-chat:custom .
 docker run -d --name chat-server-1 \
   -p 4444:4444 \
   -e CHAT_PASSWORD=pass1 \
-  vibe-chat:latest listen 4444 pass1 Admin1
+  terminal-chat:latest listen 4444 pass1 Admin1
 
 # Server 2 on port 4445
 docker run -d --name chat-server-2 \
   -p 4445:4444 \
   -e CHAT_PASSWORD=pass2 \
-  vibe-chat:latest listen 4444 pass2 Admin2
+  terminal-chat:latest listen 4444 pass2 Admin2
 ```
 
 ### Cleanup
@@ -652,7 +652,7 @@ docker-compose down
 docker-compose down -v
 
 # Remove images
-docker rmi vibe-chat:latest
+docker rmi terminal-chat:latest
 
 # Clean everything
 docker system prune -a --volumes
@@ -678,10 +678,10 @@ docker-compose ps
 docker-compose down
 
 # Backup
-docker run --rm -v vibe-chat-shared:/s:ro -v $(pwd)/backups:/b alpine tar czf /b/backup-$(date +%Y%m%d).tar.gz -C /s .
+docker run --rm -v terminal-chat-shared:/s:ro -v $(pwd)/backups:/b alpine tar czf /b/backup-$(date +%Y%m%d).tar.gz -C /s .
 
 # Restore
-docker run --rm -v vibe-chat-shared:/s -v $(pwd)/backups:/b alpine tar xzf /b/backup-YYYYMMDD.tar.gz -C /s
+docker run --rm -v terminal-chat-shared:/s -v $(pwd)/backups:/b alpine tar xzf /b/backup-YYYYMMDD.tar.gz -C /s
 ```
 
 ### File Locations
@@ -694,8 +694,8 @@ Container:
   /app/logs/             - Server logs
 
 Host (volumes):
-  vibe-chat-shared       - Shared files
-  vibe-chat-logs         - Server logs
+  terminal-chat-shared       - Shared files
+  terminal-chat-logs         - Server logs
 ```
 
 ### Ports

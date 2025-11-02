@@ -17,16 +17,17 @@ docker-compose down 2>/dev/null || docker compose down 2>/dev/null || true
 
 # Remove specific container if it exists
 echo "Step 2: Removing old container..."
-docker rm -f vibe-chat-server 2>/dev/null || docker rm -f 23055f9a3c2c_vibe-chat-server 2>/dev/null || true
+docker rm -f terminal-chat-server 2>/dev/null || docker rm -f vibe-chat-server 2>/dev/null || true
 
 # Remove old image
 echo "Step 3: Removing old image..."
-docker rmi vibe-chat:latest 2>/dev/null || true
+docker rmi terminal-chat:latest 2>/dev/null || docker rmi vibe-chat:latest 2>/dev/null || true
 
 # Ask about volumes
 read -p "Do you want to clean volumes (will delete chat history)? (y/N): " clean_volumes
 if [[ $clean_volumes == "y" || $clean_volumes == "Y" ]]; then
     echo "Step 4: Removing volumes..."
+    docker volume rm terminal-chat-shared terminal-chat-logs 2>/dev/null || \
     docker volume rm vibe-chat-shared vibe-chat-logs 2>/dev/null || true
 else
     echo "Step 4: Keeping volumes (chat history preserved)"

@@ -4,8 +4,8 @@ services:
   # Production Chat Server
   chat-server:
     build: .
-    image: vibe-chat:latest
-    container_name: vibe-chat-server
+    image: terminal-chat:latest
+    container_name: terminal-chat-server
     hostname: chat-server
     
     # Network configuration
@@ -59,9 +59,9 @@ services:
     
     # Labels for monitoring
     labels:
-      - "com.vibe-chat.service=server"
-      - "com.vibe-chat.environment=production"
-      - "com.vibe-chat.version=1.0"
+      - "com.terminal-chat.service=server"
+      - "com.terminal-chat.environment=production"
+      - "com.terminal-chat.version=1.1"
     
     # Command (use shell form for env var expansion)
     command: listen 4444 $CHAT_PASSWORD ${SERVER_USERNAME:-ChatServer}
@@ -70,7 +70,7 @@ services:
 networks:
   chat-network:
     driver: bridge
-    name: vibe-chat-network
+    name: terminal-chat-network
     ipam:
       config:
         - subnet: 172.28.0.0/16
@@ -79,7 +79,7 @@ networks:
 volumes:
   chat-shared:
     driver: local
-    name: vibe-chat-shared
+    name: terminal-chat-shared
   chat-logs:
     driver: local
-    name: vibe-chat-logs
+    name: terminal-chat-logs
