@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixed stdin reading causing container restarts
   - Fixed environment variable expansion in docker-compose command
   - Containers now start and run stably
+- **Improved password mismatch detection:**
+  - Clear, formatted error messages when wrong password used
+  - Explains issue and provides actionable solutions
+  - Helps users quickly identify and fix connection problems
 
 ### Changed
 - Reorganized documentation structure:
