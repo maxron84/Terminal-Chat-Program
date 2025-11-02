@@ -173,8 +173,8 @@ cp confidential.pdf data/outbox/
 Terminal-Chat-Program/
 ├── bin/
 │   ├── vibe-chat.py        # Interactive launcher (cross-platform) ⭐
-│   ├── QUICK_START.txt     # Quick start guide (EN)
-│   └── SCHNELLSTART.txt    # Schnellstart (DE)
+│   ├── instructions.txt    # Quick reference (EN)
+│   └── anleitung.txt       # Quick reference (DE)
 ├── src/
 │   ├── main.py             # Main entry point ⭐
 │   └── lib/                # Core library modules
@@ -193,8 +193,8 @@ Terminal-Chat-Program/
 │   ├── DOCKER_DEPLOYMENT.md # Docker guide
 │   ├── MODULAR_STRUCTURE.md # Architecture
 │   ├── TEST_DOCUMENTATION.md # Testing
-│   ├── usage_en.txt        # Commands (EN)
-│   ├── usage_de.txt        # Commands (DE)
+│   ├── USER_MANUAL.txt     # User manual (EN)
+│   ├── BENUTZER_HANDBUCH.txt # User manual (DE)
 │   └── security/           # Security docs
 │       ├── SECURITY_ASSESSMENT.md
 │       └── SECURITY_ENHANCEMENT_CONCEPT.md
@@ -244,9 +244,9 @@ Errors: 0
 
 ## 📚 Documentation
 
-### Quick Reference
-- **[Quick Start](bin/QUICK_START.txt)** - Beginner's guide (EN)
-- **[Schnellstart](bin/SCHNELLSTART.txt)** - Anfänger-Anleitung (DE)
+### User Guides
+- **[User Manual](docs/USER_MANUAL.txt)** - Complete guide (EN)
+- **[Benutzerhandbuch](docs/BENUTZER_HANDBUCH.txt)** - Vollständige Anleitung (DE)
 - **[Docker Deployment](docs/DOCKER_DEPLOYMENT.md)** - Container deployment
 
 ### Technical Details
@@ -256,9 +256,9 @@ Errors: 0
 - **[Contributing](docs/CONTRIBUTING.md)** - Contribution guide
 - **[Changelog](docs/CHANGELOG.md)** - Version history
 
-### User Guides
-- **[Commands (EN)](docs/usage_en.txt)** - Command reference
-- **[Befehle (DE)](docs/usage_de.txt)** - Befehlsreferenz
+### Quick Reference
+- **[Commands (EN)](bin/instructions.txt)** - Quick reference
+- **[Befehle (DE)](bin/anleitung.txt)** - Kurzreferenz
 
 ## 🔒 Security Features
 
@@ -287,7 +287,7 @@ Errors: 0
 - 🇩🇪 Deutsch (German)
 
 ### Add Your Language
-Contributions for additional languages welcome! See `docs/usage_en.txt` as template.
+Contributions for additional languages welcome! See `bin/instructions.txt` as template.
 
 ## 🛠️ Development
 
