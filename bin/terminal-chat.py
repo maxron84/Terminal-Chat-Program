@@ -25,12 +25,22 @@ RESET = "\033[0m"
 
 def print_banner(t):
     """Print welcome banner"""
-    print(f"""
-{MAGENTA}╔═══════════════════════════════════════╗
-║     {t.t('launcher_title')}    ║
-║   {t.t('launcher_subtitle')}   ║
-╚═══════════════════════════════════════╝{RESET}
-""")
+    title = t.t('launcher_title')
+    subtitle = t.t('launcher_subtitle')
+    
+    # Dynamic width based on longest text
+    width = max(len(title), len(subtitle)) + 8
+    top = "╔" + "═" * width + "╗"
+    bottom = "╚" + "═" * width + "╝"
+    
+    # Center the text
+    title_line = "║ " + title.center(width - 2) + " ║"
+    subtitle_line = "║ " + subtitle.center(width - 2) + " ║"
+    
+    print(f"\n{MAGENTA}{top}")
+    print(title_line)
+    print(subtitle_line)
+    print(f"{bottom}{RESET}\n")
 
 def get_language():
     """Ask user to select language"""
