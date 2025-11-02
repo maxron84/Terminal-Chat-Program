@@ -8,8 +8,16 @@ import sys
 import os
 import subprocess
 
+# Detect if running as PyInstaller bundle
+if getattr(sys, 'frozen', False):
+    # Running as compiled executable
+    bundle_dir = sys._MEIPASS
+    script_dir = bundle_dir
+else:
+    # Running as normal Python script
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Add src/lib to path for imports
-script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(script_dir, 'src'))
 
 from lib.translations import Translator
@@ -88,14 +96,23 @@ def main():
             break
         print(f"{RED}{t.t('invalid_choice')} 1 or 2{RESET}")
     
-    # Get script location (go up from bin/)
-    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    chat_script = os.path.join(script_dir, 'src', 'main.py')
-    
-    if not os.path.exists(chat_script):
-        print(f"{RED}{t.t('error')}: Could not find main.py{RESET}")
-        print(f"{YELLOW}Expected location: {chat_script}{RESET}")
-        sys.exit(1)
+    # Detect if running as PyInstaller bundle
+    if getattr(sys, 'frozen', False):
+        # Running as compiled executable - import and run directly
+        bundle_dir = sys._MEIPASS
+        sys.path.insert(0, os.path.join(bundle_dir, 'src'))
+        from lib import ChatServer, ChatClient
+        run_bundled = True
+    else:
+        # Running as normal Python script - use subprocess
+        script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        chat_script = os.path.join(script_dir, 'src', 'main.py')
+        
+        if not os.path.exists(chat_script):
+            print(f"{RED}{t.t('error')}: Could not find main.py{RESET}")
+            print(f"{YELLOW}Expected location: {chat_script}{RESET}")
+            sys.exit(1)
+        run_bundled = False
     
     try:
         if mode == '1':
@@ -110,8 +127,13 @@ def main():
             print(f"{CYAN}{t.t('username')}:{RESET} {username}")
             print(f"{YELLOW}{t.t('share_password')}: {password}{RESET}\n")
             
-            # Run server with language parameter
-            subprocess.run([sys.executable, chat_script, 'listen', port, password, username, '--lang', lang])
+            if run_bundled:
+                # Run directly in the same process
+                server = ChatServer(int(port), password, username, lang=lang)
+                server.run()
+            else:
+                # Run server with language parameter via subprocess
+                subprocess.run([sys.executable, chat_script, 'listen', port, password, username, '--lang', lang])
             
         else:
             # Client mode
@@ -125,8 +147,13 @@ def main():
             print(f"{CYAN}{t.t('server')}:{RESET} {host}:{port}")
             print(f"{CYAN}{t.t('username')}:{RESET} {username}\n")
             
-            # Run client with language parameter
-            subprocess.run([sys.executable, chat_script, 'connect', host, port, password, username, '--lang', lang])
+            if run_bundled:
+                # Run directly in the same process
+                client = ChatClient(host, int(port), password, username, lang=lang)
+                client.run()
+            else:
+                # Run client with language parameter via subprocess
+                subprocess.run([sys.executable, chat_script, 'connect', host, port, password, username, '--lang', lang])
     
     except KeyboardInterrupt:
         print(f"\n{YELLOW}{t.t('cancelled')}{RESET}")
