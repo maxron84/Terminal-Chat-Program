@@ -200,7 +200,7 @@ This entire project (code, docs, tests, Docker configs) was created using:
 
 ## Links
 
-- [Repository](https://github.com/maxron84/vibe-cozy-chat)
+- [Repository](https://github.com/maxron84/Terminal-Chat-Program)
 - [Documentation](docs/)
 - [Security Policy](SECURITY.md)
 - [Contributing](CONTRIBUTING.md)

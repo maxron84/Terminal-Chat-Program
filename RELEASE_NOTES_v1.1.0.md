@@ -1,7 +1,7 @@
 # Vibe Cozy Chat v1.1.0 Release Notes
 
 **Release Date:** November 2, 2025  
-**Repository:** https://github.com/maxron84/vibe-cozy-chat
+**Repository:** https://github.com/maxron84/Terminal-Chat-Program
 
 ## 🎉 What's New
 
@@ -48,15 +48,15 @@ All commands now documented in README with examples:
 
 ### Quick Start
 ```bash
-git clone https://github.com/maxron84/vibe-cozy-chat.git
-cd vibe-cozy-chat
+git clone https://github.com/maxron84/Terminal-Chat-Program.git
+cd Terminal-Chat-Program
 python3 bin/vibe-chat.py
 ```
 
 ### Docker Deployment
 ```bash
-git clone https://github.com/maxron84/vibe-cozy-chat.git
-cd vibe-cozy-chat
+git clone https://github.com/maxron84/Terminal-Chat-Program.git
+cd Terminal-Chat-Program
 cp .env.example .env
 nano .env  # Set strong password
 docker-compose up -d
@@ -104,7 +104,7 @@ See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
 
 ## 🐛 Bug Reports
 
-Found a bug? Please [open an issue](https://github.com/maxron84/vibe-cozy-chat/issues/new?template=bug_report.md) with:
+Found a bug? Please [open an issue](https://github.com/maxron84/Terminal-Chat-Program/issues/new?template=bug_report.md) with:
 - Detailed description
 - Steps to reproduce
 - Your environment details
@@ -112,7 +112,7 @@ Found a bug? Please [open an issue](https://github.com/maxron84/vibe-cozy-chat/i
 
 ## 💡 Feature Requests
 
-Have an idea? [Request a feature](https://github.com/maxron84/vibe-cozy-chat/issues/new?template=feature_request.md)!
+Have an idea? [Request a feature](https://github.com/maxron84/Terminal-Chat-Program/issues/new?template=feature_request.md)!
 
 ## 📝 License
 
@@ -135,9 +135,9 @@ This project is 100% AI-generated using:
 
 ## 🔗 Links
 
-- **Repository:** https://github.com/maxron84/vibe-cozy-chat
-- **Issues:** https://github.com/maxron84/vibe-cozy-chat/issues
-- **Discussions:** https://github.com/maxron84/vibe-cozy-chat/discussions
+- **Repository:** https://github.com/maxron84/Terminal-Chat-Program
+- **Issues:** https://github.com/maxron84/Terminal-Chat-Program/issues
+- **Discussions:** https://github.com/maxron84/Terminal-Chat-Program/discussions
 
 ---
 
