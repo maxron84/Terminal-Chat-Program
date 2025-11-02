@@ -1,0 +1,154 @@
+═══════════════════════════════════════════════════════════════════
+    🎨 VIBE COZY CHAT - QUICK START GUIDE 🎨
+═══════════════════════════════════════════════════════════════════
+
+Welcome to Vibe Cozy Chat! This guide will help you get started in
+just a few simple steps.
+
+═══════════════════════════════════════════════════════════════════
+📋 WHAT YOU NEED
+═══════════════════════════════════════════════════════════════════
+
+✓ Python 3 installed (usually pre-installed on Mac/Linux)
+✓ The vibe-cozy-chat folder
+✓ A password to share with your friends
+
+═══════════════════════════════════════════════════════════════════
+🚀 GETTING STARTED
+═══════════════════════════════════════════════════════════════════
+
+Step 1: Open Terminal/Command Prompt
+  • Mac/Linux: Search for "Terminal"
+  • Windows: Search for "Command Prompt" or "PowerShell"
+
+Step 2: Navigate to the vibe-cozy-chat folder
+  Type: cd /path/to/vibe-cozy-chat
+
+Step 3: Run the launcher
+  Type: ./bin/vibe-chat
+
+That's it! The launcher will guide you through the rest!
+
+═══════════════════════════════════════════════════════════════════
+🏠 HOSTING A CHAT ROOM (Server Mode)
+═══════════════════════════════════════════════════════════════════
+
+When you run the launcher:
+  1. Choose option "1" (Start Server)
+  2. Enter a port number (default: 4444 is fine)
+  3. Create a password (share this with friends!)
+  4. Choose your username (e.g., "Admin")
+
+Your friends will need:
+  ✓ Your IP address (the launcher will show it)
+  ✓ The port number you chose
+  ✓ The password you created
+
+═══════════════════════════════════════════════════════════════════
+💬 JOINING A CHAT ROOM (Client Mode)
+═══════════════════════════════════════════════════════════════════
+
+When you run the launcher:
+  1. Choose option "2" (Connect to Server)
+  2. Enter the server's IP address (ask the host)
+  3. Enter the port number (usually 4444)
+  4. Enter the password (ask the host)
+  5. Choose your username (e.g., "Alice", "Bob")
+
+═══════════════════════════════════════════════════════════════════
+🎮 USING THE CHAT
+═══════════════════════════════════════════════════════════════════
+
+Once connected, you can:
+
+📝 Send Messages
+  → Just type and press Enter!
+  → Your messages are encrypted automatically
+
+📁 List Files in Shared Folder
+  → Type: /list
+  → Shows all shared files
+
+📦 View Your Outbox
+  → Type: /outbox
+  → Shows files ready to upload
+
+⬆️ Upload a File
+  → Put file in your "outbox" folder first
+  → Type: /upload filename.txt
+  → File is uploaded to shared folder
+
+📤 Send File Directly
+  → Put file in your "outbox" folder first
+  → Type: /send filename.txt
+  → File is sent to all users
+
+🚪 Leave Chat
+  → Type: /quit
+  → Or press Ctrl+C
+
+═══════════════════════════════════════════════════════════════════
+💡 HELPFUL TIPS
+═══════════════════════════════════════════════════════════════════
+
+1. Finding Your IP Address:
+   • Mac/Linux: Type "ifconfig" or "ip addr" in terminal
+   • Windows: Type "ipconfig" in command prompt
+   • Look for something like 192.168.1.X
+
+2. Sharing Files:
+   • Create an "outbox" folder in vibe-cozy-chat
+   • Place files you want to share in this folder
+   • Use /upload or /send commands
+
+3. Security:
+   • All messages are encrypted with AES-256
+   • Only people with the password can read messages
+   • Best used on trusted networks (home, office)
+
+4. Troubleshooting:
+   • Can't connect? Check the IP address and port
+   • Wrong password? Everyone must use the same one
+   • Firewall blocking? Allow Python through firewall
+
+═══════════════════════════════════════════════════════════════════
+🎨 EXAMPLE SESSION
+═══════════════════════════════════════════════════════════════════
+
+Server (Host):
+  $ ./bin/vibe-chat
+  Choose mode: 1
+  Port number [4444]: 4444
+  Password: mysecret123
+  Your username [Admin]: ChatHost
+  
+  [ChatHost] > Welcome everyone!
+  [ChatHost] > /list
+  Shared folder is empty
+  
+Client (Friend):
+  $ ./bin/vibe-chat
+  Choose mode: 2
+  Server IP address: 192.168.1.5
+  Port number [4444]: 4444
+  Password: mysecret123
+  Your username [Guest]: Alice
+  
+  [10:30:15] ChatHost: Welcome everyone!
+  [Alice] > Hi! Thanks for having me!
+  [Alice] > /outbox
+  Outbox contents:
+    - document.pdf (1524 bytes)
+  [Alice] > /upload document.pdf
+  Uploaded document.pdf to shared folder
+
+═══════════════════════════════════════════════════════════════════
+❓ NEED MORE HELP?
+═══════════════════════════════════════════════════════════════════
+
+Check out the README.md file for more detailed information, or
+review the TEST_DOCUMENTATION.md for technical details.
+
+Enjoy your secure, encrypted chat experience! 🎉
+
+═══════════════════════════════════════════════════════════════════

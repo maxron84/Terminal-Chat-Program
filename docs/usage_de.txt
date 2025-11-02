@@ -1,0 +1,29 @@
+# ============================================
+# Cozy Secure Chat + Dateiübertragung (AES-256)
+# Reine Python-Implementierung mit Multi-Client-Unterstützung
+# Abhängigkeiten: python3, openssl Kommandozeilenwerkzeug
+#
+# Verwendung:
+#   Server: ./cozy_secure_chat.py listen <Port> <Passwort> [Benutzername]
+#   Client: ./cozy_secure_chat.py connect <IP> <Port> <Passwort> [Benutzername]
+#
+# Im Chat:
+#   /upload <Datei>    → In gemeinsamen Ordner hochladen (öffentlich)
+#   /upload <Datei> @benutzer → Privat für bestimmten Benutzer hochladen
+#   /download <Datei>  → Aus gemeinsamem Ordner herunterladen
+#   /list              → Inhalt des gemeinsamen Ordners anzeigen
+#   /inbox             → Inhalt des Eingangsordners anzeigen
+#   /outbox            → Inhalt des Ausgangsordners anzeigen
+#   /quit              → Beenden
+#   Strg+C             → Beenden
+#
+# Funktionen:
+# - Multi-Client-Chatraum mit Nachrichtenübertragung
+# - Eindeutige Benutzernamen (keine Duplikate erlaubt)
+# - Verschlüsselte Nachrichtenanzeige
+# - Gemeinsamer Ordner für Dateiaustausch
+# - Private Dateifreigabe zwischen Benutzern
+# - Berechtigungsbasierter Dateizugriff
+# - Ausgangsordner für Dateisicherheit
+# - Eingangsordner für empfangene Dateien
+# ============================================

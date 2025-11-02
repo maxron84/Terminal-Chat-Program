@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # Chat Server
+  chat-server:
+    build: .
+    container_name: vibe-chat-server
+    hostname: chat-server
+    ports:
+      - "4444:4444"
+    environment:
+      - CHAT_MODE=server
+      - CHAT_PORT=4444
+      - CHAT_PASSWORD=${CHAT_PASSWORD:-securePassword123}
+      - CHAT_USERNAME=${SERVER_USERNAME:-Admin}
+    volumes:
+      - ./data/shared:/app/data/shared
+      - ./data/outbox:/app/data/outbox
+      - ./logs:/app/logs
+    networks:
+      - chat-network
+    restart: unless-stopped
+    command: ["listen", "4444", "${CHAT_PASSWORD:-securePassword123}", "${SERVER_USERNAME:-Admin}"]
+    stdin_open: true
+    tty: true
+
+  # Example Client 1 (optional)
+  chat-client-1:
+    build: .
+    container_name: vibe-chat-client-1
+    hostname: client-1
+    depends_on:
+      - chat-server
+    environment:
+      - CHAT_MODE=client
+      - CHAT_SERVER=chat-server
+      - CHAT_PORT=4444
+      - CHAT_PASSWORD=${CHAT_PASSWORD:-securePassword123}
+      - CHAT_USERNAME=${CLIENT1_USERNAME:-Alice}
+    volumes:
+      - ./data/inbox:/app/data/inbox
+      - ./data/outbox:/app/data/outbox
+    networks:
+      - chat-network
+    profiles:
+      - clients  # Only start with --profile clients
+    command: ["connect", "chat-server", "4444", "${CHAT_PASSWORD:-securePassword123}", "${CLIENT1_USERNAME:-Alice}"]
+    stdin_open: true
+    tty: true
+
+  # Example Client 2 (optional)
+  chat-client-2:
+    build: .
+    container_name: vibe-chat-client-2
+    hostname: client-2
+    depends_on:
+      - chat-server
+    environment:
+      - CHAT_MODE=client
+      - CHAT_SERVER=chat-server
+      - CHAT_PORT=4444
+      - CHAT_PASSWORD=${CHAT_PASSWORD:-securePassword123}
+      - CHAT_USERNAME=${CLIENT2_USERNAME:-Bob}
+    volumes:
+      - client2-inbox:/app/data/inbox
+      - client2-outbox:/app/data/outbox
+    networks:
+      - chat-network
+    profiles:
+      - clients  # Only start with --profile clients
+    command: ["connect", "chat-server", "4444", "${CHAT_PASSWORD:-securePassword123}", "${CLIENT2_USERNAME:-Bob}"]
+    stdin_open: true
+    tty: true
+
+networks:
+  chat-network:
+    driver: bridge
+    name: vibe-chat-network
+
+volumes:
+  client2-inbox:
+  client2-outbox:

@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # Production Chat Server
+  chat-server:
+    build: .
+    image: vibe-chat:latest
+    container_name: vibe-chat-server
+    hostname: chat-server
+    
+    # Network configuration
+    ports:
+      - "${CHAT_PORT:-4444}:4444"
+    
+    networks:
+      - chat-network
+    
+    # Environment variables
+    environment:
+      - CHAT_PORT=4444
+      - CHAT_PASSWORD=${CHAT_PASSWORD:?CHAT_PASSWORD is required}
+      - CHAT_USERNAME=${SERVER_USERNAME:-ChatServer}
+      - PYTHONUNBUFFERED=1
+    
+    # Persistent storage
+    volumes:
+      - chat-shared:/app/data/shared
+      - chat-logs:/app/logs
+      - ./data/outbox:/app/data/outbox:ro  # Read-only for security
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.settimeout(1); s.connect(('localhost', 4444)); s.close()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service,environment"
+    
+    # Labels for monitoring
+    labels:
+      - "com.vibe-chat.service=server"
+      - "com.vibe-chat.environment=production"
+      - "com.vibe-chat.version=1.0"
+    
+    # Command
+    command: ["listen", "4444", "${CHAT_PASSWORD}", "${SERVER_USERNAME:-ChatServer}"]
+
+# Networks
+networks:
+  chat-network:
+    driver: bridge
+    name: vibe-chat-network
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# Volumes
+volumes:
+  chat-shared:
+    driver: local
+    name: vibe-chat-shared
+  chat-logs:
+    driver: local
+    name: vibe-chat-logs

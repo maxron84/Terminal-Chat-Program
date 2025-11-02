@@ -1,0 +1,154 @@
+═══════════════════════════════════════════════════════════════════
+    🎨 VIBE COZY CHAT - SCHNELLSTART-ANLEITUNG 🎨
+═══════════════════════════════════════════════════════════════════
+
+Willkommen bei Vibe Cozy Chat! Diese Anleitung hilft Ihnen, in
+wenigen einfachen Schritten loszulegen.
+
+═══════════════════════════════════════════════════════════════════
+📋 WAS SIE BENÖTIGEN
+═══════════════════════════════════════════════════════════════════
+
+✓ Python 3 installiert (meist vorinstalliert auf Mac/Linux)
+✓ Den vibe-cozy-chat Ordner
+✓ Ein Passwort zum Teilen mit Ihren Freunden
+
+═══════════════════════════════════════════════════════════════════
+🚀 ERSTE SCHRITTE
+═══════════════════════════════════════════════════════════════════
+
+Schritt 1: Terminal/Eingabeaufforderung öffnen
+  • Mac/Linux: Suchen Sie nach "Terminal"
+  • Windows: Suchen Sie nach "Eingabeaufforderung" oder "PowerShell"
+
+Schritt 2: Zum vibe-cozy-chat Ordner navigieren
+  Geben Sie ein: cd /pfad/zu/vibe-cozy-chat
+
+Schritt 3: Starten Sie den Launcher
+  Geben Sie ein: ./bin/vibe-chat
+
+Das war's! Der Launcher führt Sie durch den Rest!
+
+═══════════════════════════════════════════════════════════════════
+🏠 EINEN CHATRAUM HOSTEN (Server-Modus)
+═══════════════════════════════════════════════════════════════════
+
+Wenn Sie den Launcher ausführen:
+  1. Wählen Sie Option "1" (Server starten)
+  2. Geben Sie eine Portnummer ein (Standard: 4444 ist in Ordnung)
+  3. Erstellen Sie ein Passwort (teilen Sie dies mit Freunden!)
+  4. Wählen Sie Ihren Benutzernamen (z.B. "Admin")
+
+Ihre Freunde benötigen:
+  ✓ Ihre IP-Adresse (der Launcher zeigt sie an)
+  ✓ Die gewählte Portnummer
+  ✓ Das erstellte Passwort
+
+═══════════════════════════════════════════════════════════════════
+💬 EINEM CHATRAUM BEITRETEN (Client-Modus)
+═══════════════════════════════════════════════════════════════════
+
+Wenn Sie den Launcher ausführen:
+  1. Wählen Sie Option "2" (Mit Server verbinden)
+  2. Geben Sie die IP-Adresse des Servers ein (fragen Sie den Host)
+  3. Geben Sie die Portnummer ein (normalerweise 4444)
+  4. Geben Sie das Passwort ein (fragen Sie den Host)
+  5. Wählen Sie Ihren Benutzernamen (z.B. "Alice", "Bob")
+
+═══════════════════════════════════════════════════════════════════
+🎮 DEN CHAT VERWENDEN
+═══════════════════════════════════════════════════════════════════
+
+Sobald Sie verbunden sind, können Sie:
+
+📝 Nachrichten Senden
+  → Einfach tippen und Enter drücken!
+  → Ihre Nachrichten werden automatisch verschlüsselt
+
+📁 Dateien im Gemeinsamen Ordner Auflisten
+  → Eingabe: /list
+  → Zeigt alle geteilten Dateien
+
+📦 Ihren Ausgangsordner Anzeigen
+  → Eingabe: /outbox
+  → Zeigt Dateien bereit zum Hochladen
+
+⬆️ Eine Datei Hochladen
+  → Legen Sie die Datei zuerst in Ihren "outbox" Ordner
+  → Eingabe: /upload dateiname.txt
+  → Datei wird in gemeinsamen Ordner hochgeladen
+
+📤 Datei Direkt Senden
+  → Legen Sie die Datei zuerst in Ihren "outbox" Ordner
+  → Eingabe: /send dateiname.txt
+  → Datei wird an alle Benutzer gesendet
+
+🚪 Chat Verlassen
+  → Eingabe: /quit
+  → Oder drücken Sie Strg+C
+
+═══════════════════════════════════════════════════════════════════
+💡 HILFREICHE TIPPS
+═══════════════════════════════════════════════════════════════════
+
+1. Ihre IP-Adresse Finden:
+   • Mac/Linux: Geben Sie "ifconfig" oder "ip addr" im Terminal ein
+   • Windows: Geben Sie "ipconfig" in der Eingabeaufforderung ein
+   • Suchen Sie nach etwas wie 192.168.1.X
+
+2. Dateien Teilen:
+   • Erstellen Sie einen "outbox" Ordner in vibe-cozy-chat
+   • Legen Sie Dateien, die Sie teilen möchten, in diesen Ordner
+   • Verwenden Sie /upload oder /send Befehle
+
+3. Sicherheit:
+   • Alle Nachrichten sind mit AES-256 verschlüsselt
+   • Nur Personen mit dem Passwort können Nachrichten lesen
+   • Am besten in vertrauenswürdigen Netzwerken verwenden (Zuhause, Büro)
+
+4. Fehlerbehebung:
+   • Verbindung nicht möglich? Überprüfen Sie IP-Adresse und Port
+   • Falsches Passwort? Alle müssen dasselbe verwenden
+   • Firewall blockiert? Erlauben Sie Python durch die Firewall
+
+═══════════════════════════════════════════════════════════════════
+🎨 BEISPIEL-SITZUNG
+═══════════════════════════════════════════════════════════════════
+
+Server (Host):
+  $ ./bin/vibe-chat
+  Modus wählen: 1
+  Portnummer [4444]: 4444
+  Passwort: meingeheimnis123
+  Ihr Benutzername [Admin]: ChatHost
+  
+  [ChatHost] > Willkommen alle zusammen!
+  [ChatHost] > /list
+  Gemeinsamer Ordner ist leer
+  
+Client (Freund):
+  $ ./bin/vibe-chat
+  Modus wählen: 2
+  Server-IP-Adresse: 192.168.1.5
+  Portnummer [4444]: 4444
+  Passwort: meingeheimnis123
+  Ihr Benutzername [Gast]: Alice
+  
+  [10:30:15] ChatHost: Willkommen alle zusammen!
+  [Alice] > Hallo! Danke fürs Einladen!
+  [Alice] > /outbox
+  Ausgangsordner-Inhalt:
+    - dokument.pdf (1524 bytes)
+  [Alice] > /upload dokument.pdf
+  dokument.pdf in gemeinsamen Ordner hochgeladen
+
+═══════════════════════════════════════════════════════════════════
+❓ BRAUCHEN SIE MEHR HILFE?
+═══════════════════════════════════════════════════════════════════
+
+Lesen Sie die README.md Datei für detailliertere Informationen, oder
+schauen Sie in die TEST_DOCUMENTATION.md für technische Details.
+
+Viel Spaß mit Ihrer sicheren, verschlüsselten Chat-Erfahrung! 🎉
+
+═══════════════════════════════════════════════════════════════════

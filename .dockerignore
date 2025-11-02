@@ -1,0 +1,50 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User Data (will be mounted as volumes)
+data/inbox/*
+data/outbox/*
+data/shared/*
+data/file_permissions.json
+!data/inbox/.gitkeep
+!data/outbox/.gitkeep
+!data/shared/.gitkeep
+
+# Logs
+logs/*.log
+
+# Test files
+tests/
+.pytest_cache/
+
+# Documentation (not needed in container)
+docs/
+README.md
+LICENSE
+*.md
+
+# Legacy code
+src/legacy/
