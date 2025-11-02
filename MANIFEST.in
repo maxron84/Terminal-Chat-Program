@@ -1,0 +1,22 @@
+# Include documentation
+include README.md
+include LICENSE
+include INSTALL.md
+include requirements.txt
+
+# Include documentation folder
+recursive-include docs *.md *.txt
+
+# Include bin scripts
+recursive-include bin *.py *.txt
+
+# Include data folder structure
+recursive-include data .gitkeep
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.dylib

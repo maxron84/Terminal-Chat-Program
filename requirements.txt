@@ -1,0 +1,18 @@
+# Terminal Chat Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependency for encryption
+cryptography>=41.0.0
+
+# Development dependencies (optional)
+# Uncomment if needed for development
+
+# For building executables
+# pyinstaller>=6.0.0
+
+# For testing
+# pytest>=7.4.0
+
+# For code quality
+# pylint>=3.0.0
+# black>=23.0.0
