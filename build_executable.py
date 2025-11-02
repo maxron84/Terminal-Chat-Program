@@ -10,6 +10,13 @@ import platform
 import subprocess
 import shutil
 
+# ANSI colors
+RED = "\033[1;31m"
+GREEN = "\033[1;32m"
+YELLOW = "\033[1;33m"
+CYAN = "\033[1;36m"
+RESET = "\033[0m"
+
 def main():
     """Build executable for current platform"""
     
@@ -23,17 +30,21 @@ def main():
         print(f"✓ PyInstaller {PyInstaller.__version__} found")
     except ImportError:
         print("✗ PyInstaller not found!")
-        print("\nInstalling PyInstaller (user mode)...")
-        try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "--user", "pyinstaller"])
-            print("✓ PyInstaller installed")
-        except subprocess.CalledProcessError:
-            print(f"\n{RED}Failed to install PyInstaller!{RESET}")
-            print("\nPlease install manually:")
-            print("  pip install --user pyinstaller")
-            print("  OR")
-            print("  pipx install pyinstaller")
-            sys.exit(1)
+        print(f"\n{RED}ERROR: PyInstaller is required but not installed{RESET}")
+        print(f"\n{YELLOW}This system has externally-managed Python.{RESET}")
+        print(f"{YELLOW}Please install PyInstaller manually using ONE of these methods:{RESET}\n")
+        print(f"{CYAN}Option 1 - Using pipx (recommended):{RESET}")
+        print("  sudo apt install pipx")
+        print("  pipx install pyinstaller")
+        print(f"\n{CYAN}Option 2 - Using venv:{RESET}")
+        print("  python3 -m venv venv")
+        print("  source venv/bin/activate")
+        print("  pip install pyinstaller")
+        print("  python build_executable.py")
+        print(f"\n{CYAN}Option 3 - System package:{RESET}")
+        print("  sudo apt install pyinstaller")
+        print(f"\n{YELLOW}Note: The executable already exists in dist/ and works!{RESET}")
+        sys.exit(1)
     
     # Determine platform
     system = platform.system()
