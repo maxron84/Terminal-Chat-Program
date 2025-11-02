@@ -288,7 +288,7 @@ class ChatClient:
                             print(f"{RED}File not found in outbox: {filename}{RESET}")
                             print(f"{YELLOW}Hint: Files must be in the 'data/outbox/' folder{RESET}")
                     elif msg == '/outbox':
-                        files = os.listdir(self.outbox_folder)
+                        files = [f for f in os.listdir(self.outbox_folder) if not f.startswith('.')]
                         if files:
                             print(f"{CYAN}Outbox contents:{RESET}")
                             for f in files:
@@ -307,7 +307,7 @@ class ChatClient:
                             self.sock.sendall(encrypted.encode() + b'\n')
                             print(f"{CYAN}[{timestamp()}] Requesting {filename} from shared folder...{RESET}")
                     elif msg == '/inbox':
-                        files = os.listdir(self.inbox_folder)
+                        files = [f for f in os.listdir(self.inbox_folder) if not f.startswith('.')]
                         if files:
                             print(f"{CYAN}Inbox contents:{RESET}")
                             for f in files:

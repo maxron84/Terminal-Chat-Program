@@ -270,7 +270,7 @@ class ChatServer:
                 
                 # Handle special commands
                 if msg.startswith("__CMD_LIST__"):
-                    files = os.listdir(self.shared_folder)
+                    files = [f for f in os.listdir(self.shared_folder) if not f.startswith('.')]
                     if files:
                         response = "Shared folder contents:"
                         file_list = self.file_perms.list_files_for_user(username, files)
@@ -429,7 +429,7 @@ class ChatServer:
                         print(f"{CYAN}╚══════════════════════════════════════════════════════════╝{RESET}")
                         continue
                     elif msg == '/list':
-                        files = os.listdir(self.shared_folder)
+                        files = [f for f in os.listdir(self.shared_folder) if not f.startswith('.')]
                         if files:
                             print(f"{CYAN}Shared folder contents:{RESET}")
                             for f in files:
@@ -439,7 +439,7 @@ class ChatServer:
                             print(f"{YELLOW}Shared folder is empty{RESET}")
                         continue
                     elif msg == '/inbox':
-                        files = os.listdir(self.inbox_folder)
+                        files = [f for f in os.listdir(self.inbox_folder) if not f.startswith('.')]
                         if files:
                             print(f"{CYAN}Inbox contents:{RESET}")
                             for f in files:
@@ -449,7 +449,7 @@ class ChatServer:
                             print(f"{YELLOW}Inbox is empty{RESET}")
                         continue
                     elif msg == '/outbox':
-                        files = os.listdir(self.outbox_folder)
+                        files = [f for f in os.listdir(self.outbox_folder) if not f.startswith('.')]
                         if files:
                             print(f"{CYAN}Outbox contents:{RESET}")
                             for f in files:
