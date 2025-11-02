@@ -370,6 +370,24 @@ class ChatServer:
     
     def server_commands(self):
         """Handle server-side commands"""
+        # Check if stdin is available (not in Docker/non-interactive mode)
+        import os
+        if not sys.stdin.isatty():
+            print(f"{YELLOW}[{timestamp()}] Running in non-interactive mode (Docker/background){RESET}",
+                  file=sys.stderr)
+            print(f"{YELLOW}[{timestamp()}] Server username: {self.username}{RESET}",
+                  file=sys.stderr)
+            print(f"{YELLOW}[{timestamp()}] Server will run until stopped (Ctrl+C or Docker stop){RESET}",
+                  file=sys.stderr)
+            # Keep thread alive but don't try to read input
+            try:
+                while self.running:
+                    import time
+                    time.sleep(1)
+            except (KeyboardInterrupt, EOFError):
+                pass
+            return
+        
         print(f"{YELLOW}[{timestamp()}] Server username: {self.username}{RESET}",
               file=sys.stderr)
         print(f"{YELLOW}[{timestamp()}] Commands: /help, /inbox, /outbox, /list, /upload <file>, /download <file>, /quit{RESET}",
