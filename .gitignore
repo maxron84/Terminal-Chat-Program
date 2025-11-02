@@ -63,4 +63,7 @@ htmlcov/
 # Docker
 .env
 docker-compose.override.yml
-*.dockerignore.baksrc/data/
+*.dockerignore.bak
+
+# Prevent src/data recreation
+src/data/
