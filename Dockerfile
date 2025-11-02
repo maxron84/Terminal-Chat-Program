@@ -33,5 +33,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 # Default command (server mode)
 # Can be overridden with docker run arguments
-ENTRYPOINT ["python3", "src/modular/cozy_secure_chat_modular.py"]
+ENTRYPOINT ["python3", "src/main.py"]
 CMD ["listen", "4444", "changeMe123", "Server"]

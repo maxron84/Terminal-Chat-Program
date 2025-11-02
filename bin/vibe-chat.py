@@ -53,12 +53,12 @@ def main():
             break
         print(f"{RED}Invalid choice! Please enter 1 or 2{RESET}")
     
-    # Get script location - using modular version (go up from bin/)
+    # Get script location (go up from bin/)
     script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    chat_script = os.path.join(script_dir, 'src', 'modular', 'cozy_secure_chat_modular.py')
+    chat_script = os.path.join(script_dir, 'src', 'main.py')
     
     if not os.path.exists(chat_script):
-        print(f"{RED}Error: Could not find cozy_secure_chat.py{RESET}")
+        print(f"{RED}Error: Could not find main.py{RESET}")
         print(f"{YELLOW}Expected location: {chat_script}{RESET}")
         sys.exit(1)
     

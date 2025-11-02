@@ -102,10 +102,10 @@ See [Docker Deployment Guide](docs/DOCKER_DEPLOYMENT.md) for complete guide.
 **Command Line Mode**:
 ```bash
 # Start server
-python3 src/modular/cozy_secure_chat_modular.py listen 4444 mypassword Admin
+python3 src/main.py listen 4444 mypassword Admin
 
 # Connect as client
-python3 src/modular/cozy_secure_chat_modular.py connect localhost 4444 mypassword Alice
+python3 src/main.py connect localhost 4444 mypassword Alice
 ```
 
 ## 📖 Usage
@@ -174,15 +174,14 @@ Terminal-Chat-Program/
 │   ├── QUICK_START.txt     # Quick start guide (EN)
 │   └── SCHNELLSTART.txt    # Schnellstart (DE)
 ├── src/
-│   ├── lib/                 # Core library modules
-│   │   ├── __init__.py
-│   │   ├── utils.py        # Utilities & colors
-│   │   ├── encryption.py   # AES-256-CBC encryption
-│   │   ├── server.py       # Multi-client server
-│   │   ├── client.py       # Chat client
-│   │   └── file_permissions.py  # Access control
-│   └── modular/            # Main entry point
-│       └── cozy_secure_chat_modular.py
+│   ├── main.py             # Main entry point ⭐
+│   └── lib/                # Core library modules
+│       ├── __init__.py
+│       ├── utils.py        # Utilities & colors
+│       ├── encryption.py   # AES-256-CBC encryption
+│       ├── server.py       # Multi-client server
+│       ├── client.py       # Chat client
+│       └── file_permissions.py  # Access control
 ├── tests/
 │   └── test_chat.py        # 27 unit & integration tests
 ├── docs/
@@ -297,7 +296,7 @@ Contributions for additional languages welcome! See `docs/usage_en.txt` as templ
 python3 -c "from src.lib import ChatServer, ChatClient"
 
 # Direct execution
-python3 src/modular/cozy_secure_chat_modular.py listen 4444 pass Admin
+python3 src/main.py listen 4444 pass Admin
 ```
 
 ### Docker Development
