@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Unit and Integration Tests for Cozy Secure Chat
+Unit and Integration Tests for Terminal Chat
 Run with: python3 -m pytest test_chat.py -v
 Or: python3 test_chat.py
 """

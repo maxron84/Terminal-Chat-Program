@@ -1,9 +1,9 @@
 # ============================================
-# Vibe Cozy Chat - Quick Reference
+# Terminal Chat - Quick Reference
 # ============================================
 #
 # LAUNCH:
-#   ./bin/vibe-chat.py
+#   ./bin/terminal-chat.py
 #
 # Or directly with Python:
 #   python3 src/main.py listen <port> <password> [username]

@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document outlines the technical design for implementing TLS/SSL encryption and user authentication to make Vibe Cozy Chat suitable for cloud deployment (AWS).
+This document outlines the technical design for implementing TLS/SSL encryption and user authentication to make Terminal Chat suitable for cloud deployment (AWS).
 
 **Goal:** Transform the current LAN-only chat into a secure, internet-ready application.
 
@@ -256,19 +256,19 @@ class UserAdmin:
 #### 4.2 CLI Tools
 ```bash
 # Create admin user
-python3 -m vibe_chat.admin create-user --username admin --admin
+python3 -m terminal_chat.admin create-user --username admin --admin
 
 # Create regular user
-python3 -m vibe_chat.admin create-user --username alice
+python3 -m terminal_chat.admin create-user --username alice
 
 # List users
-python3 -m vibe_chat.admin list-users
+python3 -m terminal_chat.admin list-users
 
 # Deactivate user
-python3 -m vibe_chat.admin deactivate --username bob
+python3 -m terminal_chat.admin deactivate --username bob
 
 # Change password
-python3 -m vibe_chat.admin change-password --username alice
+python3 -m terminal_chat.admin change-password --username alice
 ```
 
 ### 5. Logging & Monitoring
@@ -409,14 +409,14 @@ Terminal-Chat-Program/
 │   │   ├── server.py              # MODIFIED: Add TLS/Auth
 │   │   └── client.py              # MODIFIED: Add TLS/Auth
 │   ├── secure/                     # NEW: Secure version
-│   │   └── cozy_secure_chat_tls.py
+│   │   └── terminal_chat_tls.py
 │   ├── admin/                      # NEW: Admin tools
 │   │   ├── __init__.py
 │   │   └── user_admin_cli.py
 │   ├── legacy/
-│   │   └── cozy_secure_chat.py   # Original
+│   │   └── terminal_chat.py   # Original
 │   └── modular/
-│       └── cozy_secure_chat_modular.py
+│       └── terminal_chat_modular.py
 ├── ssl/                            # NEW: Certificates
 │   ├── generate_certs.sh
 │   ├── server.key
@@ -713,7 +713,7 @@ auth:
 
 ---
 
-**Ready to proceed?** This concept provides the foundation for implementing secure, cloud-ready Vibe Cozy Chat. Each component is modular and can be developed/tested independently.
+**Ready to proceed?** This concept provides the foundation for implementing secure, cloud-ready Terminal Chat. Each component is modular and can be developed/tested independently.
 
 **Estimated Timeline:** 3-4 weeks for full implementation
 **Difficulty:** High (requires security expertise)

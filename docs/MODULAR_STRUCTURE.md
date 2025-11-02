@@ -1,4 +1,4 @@
-# Modular Structure for Vibe Cozy Chat
+# Modular Structure for Terminal Chat
 
 ## Overview
 
@@ -8,7 +8,7 @@ The codebase has been organized into a modular structure for better maintainabil
 
 ```
 src/
-├── cozy_secure_chat.py          ← Original monolithic version (WORKING)
+├── terminal_chat.py          ← Original monolithic version (WORKING)
 ├── lib/                          ← Reusable library modules
 │   ├── __init__.py              - Library exports
 │   ├── utils.py                 - Utilities & constants
@@ -16,7 +16,7 @@ src/
 │   ├── server.py                - ChatServer class (TODO)
 │   └── client.py                - ChatClient class (TODO)
 └── modular/                      ← Modular version
-    ├── cozy_secure_chat_modular.py  - Entry point using lib/
+    ├── terminal_chat_modular.py  - Entry point using lib/
     └── MODULAR_STRUCTURE.md     - This file
 ```
 
@@ -60,7 +60,7 @@ src/
   - Command processing
 - **Dependencies**: socket, threading, os, base64, utils, encryption
 
-### 🚧 modular/cozy_secure_chat_modular.py (To Be Created)
+### 🚧 modular/terminal_chat_modular.py (To Be Created)
 - **Purpose**: Main entry point using modular components
 - **Contents**:
   - Import from lib/
@@ -100,7 +100,7 @@ src/
 
 ```
 ┌─────────────────────────────────────────────┐
-│         cozy_secure_chat_modular.py         │
+│         terminal_chat_modular.py         │
 │              (Entry Point)                  │
 │  - Parse arguments                          │
 │  - Initialize server/client                 │
@@ -135,14 +135,14 @@ src/
 
 ### Original Version (Still Works!)
 ```bash
-python3 src/cozy_secure_chat.py listen 4444 pass123 Admin
-python3 src/cozy_secure_chat.py connect localhost 4444 pass123 Alice
+python3 src/terminal_chat.py listen 4444 pass123 Admin
+python3 src/terminal_chat.py connect localhost 4444 pass123 Alice
 ```
 
 ### Modular Version (After completing TODO items)
 ```bash
-python3 src/modular/cozy_secure_chat_modular.py listen 4444 pass123 Admin
-python3 src/modular/cozy_secure_chat_modular.py connect localhost 4444 pass123 Alice
+python3 src/modular/terminal_chat_modular.py listen 4444 pass123 Admin
+python3 src/modular/terminal_chat_modular.py connect localhost 4444 pass123 Alice
 ```
 
 ### As Library
@@ -201,7 +201,7 @@ def test_server_client_communication():
 
 ## Notes
 
-- **Original file preserved**: `src/cozy_secure_chat.py` remains unchanged
+- **Original file preserved**: `src/terminal_chat.py` remains unchanged
 - **Gradual migration**: Can be done incrementally
 - **Backwards compatible**: Old code continues to work
 - **Future proof**: Easy to add new features as modules
@@ -212,7 +212,7 @@ To complete the modularization:
 
 1. Extract `ChatServer` class to `lib/server.py`
 2. Extract `ChatClient` class to `lib/client.py`  
-3. Create `modular/cozy_secure_chat_modular.py` entry point
+3. Create `modular/terminal_chat_modular.py` entry point
 4. Update tests to import from lib/
 5. Update documentation
 

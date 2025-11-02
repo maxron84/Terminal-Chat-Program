@@ -1,8 +1,8 @@
 ═══════════════════════════════════════════════════════════════════
-    🎨 VIBE COZY CHAT - SCHNELLSTART-ANLEITUNG 🎨
+    🎨 TERMINAL CHAT - SCHNELLSTART-ANLEITUNG 🎨
 ═══════════════════════════════════════════════════════════════════
 
-Willkommen bei Vibe Cozy Chat! Diese Anleitung hilft Ihnen, in
+Willkommen bei Terminal Chat! Diese Anleitung hilft Ihnen, in
 wenigen einfachen Schritten loszulegen.
 
 ═══════════════════════════════════════════════════════════════════
@@ -25,7 +25,7 @@ Schritt 2: Zum Terminal-Chat-Program Ordner navigieren
   Geben Sie ein: cd /pfad/zu/Terminal-Chat-Program
 
 Schritt 3: Starten Sie den Launcher
-  Geben Sie ein: ./bin/vibe-chat.py
+  Geben Sie ein: ./bin/terminal-chat.py
 
 Das war's! Der Launcher führt Sie durch den Rest!
 
@@ -116,7 +116,7 @@ Sobald Sie verbunden sind, können Sie:
 ═══════════════════════════════════════════════════════════════════
 
 Server (Host):
-  $ ./bin/vibe-chat.py
+  $ ./bin/terminal-chat.py
   Modus wählen: 1
   Portnummer [4444]: 4444
   Passwort: meingeheimnis123
@@ -127,7 +127,7 @@ Server (Host):
   Gemeinsamer Ordner ist leer
   
 Client (Freund):
-  $ ./bin/vibe-chat.py
+  $ ./bin/terminal-chat.py
   Modus wählen: 2
   Server-IP-Adresse: 192.168.1.5
   Portnummer [4444]: 4444

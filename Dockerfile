@@ -1,8 +1,8 @@
-# Vibe Cozy Chat - Docker Image
+# Terminal Chat - Docker Image
 FROM python:3.9-slim
 
 # Set metadata
-LABEL maintainer="Vibe Cozy Chat Team"
+LABEL maintainer="Terminal Chat Team"
 LABEL description="Secure encrypted terminal chat application"
 LABEL version="1.0"
 

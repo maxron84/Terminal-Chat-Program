@@ -1,5 +1,5 @@
 """
-Vibe Cozy Chat Library
+Terminal Chat Library
 Modular components for encrypted chat functionality
 """
 

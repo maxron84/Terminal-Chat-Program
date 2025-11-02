@@ -1,5 +1,5 @@
 """
-Server module for Vibe Cozy Chat
+Server module for Terminal Chat
 Multi-client chat server with file sharing and encryption
 """
 

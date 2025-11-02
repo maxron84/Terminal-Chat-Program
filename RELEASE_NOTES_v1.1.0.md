@@ -1,4 +1,4 @@
-# Vibe Cozy Chat v1.1.0 Release Notes
+# Terminal Chat v1.1.0 Release Notes
 
 **Release Date:** November 2, 2025  
 **Repository:** https://github.com/maxron84/Terminal-Chat-Program
@@ -56,7 +56,7 @@ All commands now documented in README with examples:
 ```bash
 git clone https://github.com/maxron84/Terminal-Chat-Program.git
 cd Terminal-Chat-Program
-python3 bin/vibe-chat.py
+python3 bin/terminal-chat.py
 ```
 
 ### Docker Deployment

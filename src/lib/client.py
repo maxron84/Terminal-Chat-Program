@@ -1,5 +1,5 @@
 """
-Client module for Vibe Cozy Chat
+Client module for Terminal Chat
 Chat client with encryption, color-coded messages, and file transfer
 """
 

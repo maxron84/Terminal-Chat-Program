@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Vibe Cozy Chat will be documented in this file.
+All notable changes to Terminal Chat will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `bin/` now contains quick reference cards (instructions.txt, anleitung.txt)
   - `docs/` now contains detailed user manuals (USER_MANUAL.txt, BENUTZER_HANDBUCH.txt)
 - Updated all documentation to reference correct file paths
-- Updated launcher path references to `./bin/vibe-chat.py`
+- Updated launcher path references to `./bin/terminal-chat.py`
 - Improved user experience with clearer command organization
 
 ### Documentation
@@ -48,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎉 Initial Release
 
-First public release of Vibe Cozy Chat - a secure, encrypted terminal-based chat application.
+First public release of Terminal Chat - a secure, encrypted terminal-based chat application.
 
 ### Added
 
@@ -85,7 +85,7 @@ First public release of Vibe Cozy Chat - a secure, encrypted terminal-based chat
 - Multi-stage configuration
 
 #### User Interface
-- Interactive Python launcher (bin/vibe-chat.py)
+- Interactive Python launcher (bin/terminal-chat.py)
 - Color-coded terminal output
 - Command-based interface
 - Real-time message display

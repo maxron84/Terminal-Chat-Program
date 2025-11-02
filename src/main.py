@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cozy Secure Chat - Modular Version
+Terminal Chat - Modular Version
 Uses the lib/ components for better maintainability
 
 This version imports from the lib/ directory for:
@@ -23,18 +23,18 @@ def main():
     """Main entry point"""
     if len(sys.argv) < 4:
         print("Usage:")
-        print("  Server: ./cozy_secure_chat_modular.py listen <port> <password> [username]")
-        print("  Client: ./cozy_secure_chat_modular.py connect <ip> <port> <password> [username]")
+        print("  Server: ./main.py listen <port> <password> [username]")
+        print("  Client: ./main.py connect <ip> <port> <password> [username]")
         print("\nExamples:")
-        print("  Server: ./cozy_secure_chat_modular.py listen 4444 mypass Admin")
-        print("  Client: ./cozy_secure_chat_modular.py connect 192.168.1.5 4444 mypass Alice")
+        print("  Server: ./main.py listen 4444 mypass Admin")
+        print("  Client: ./main.py connect 192.168.1.5 4444 mypass Alice")
         sys.exit(1)
     
     mode = sys.argv[1]
     
     if mode == 'listen':
         if len(sys.argv) < 4:
-            print("Usage: ./cozy_secure_chat_modular.py listen <port> <password> [username]")
+            print("Usage: ./main.py listen <port> <password> [username]")
             sys.exit(1)
         port = int(sys.argv[2])
         password = sys.argv[3]
@@ -45,7 +45,7 @@ def main():
         
     elif mode == 'connect':
         if len(sys.argv) < 5:
-            print("Usage: ./cozy_secure_chat_modular.py connect <ip> <port> <password> [username]")
+            print("Usage: ./main.py connect <ip> <port> <password> [username]")
             sys.exit(1)
         host = sys.argv[2]
         port = int(sys.argv[3])

@@ -1,5 +1,5 @@
 """
-Encryption module for Vibe Cozy Chat
+Encryption module for Terminal Chat
 Handles AES-256-CBC encryption/decryption using OpenSSL
 """
 

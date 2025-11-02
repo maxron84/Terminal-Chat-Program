@@ -1,6 +1,6 @@
 # 🐳 Docker Deployment Guide
 
-Complete guide for deploying Vibe Cozy Chat using Docker and Docker Compose.
+Complete guide for deploying Terminal Chat using Docker and Docker Compose.
 
 ## Table of Contents
 
@@ -33,7 +33,7 @@ echo "CHAT_PASSWORD=$(openssl rand -hex 32)" >> .env
 docker-compose up -d
 
 # 3. Connect
-python3 bin/vibe-chat.py
+python3 bin/terminal-chat.py
 ```
 
 That's it! Server is running.
@@ -440,7 +440,7 @@ sudo ufw allow from 192.168.1.50 to any port 4444 proto tcp
 2. **Connect using the launcher:**
 ```bash
 # On client machine
-python3 bin/vibe-chat.py
+python3 bin/terminal-chat.py
 
 # When prompted:
 # - Enter server IP: 192.168.1.100
@@ -617,7 +617,7 @@ COPY . /app
 WORKDIR /app
 
 # Custom entrypoint
-ENTRYPOINT ["python3", "src/modular/cozy_secure_chat_modular.py"]
+ENTRYPOINT ["python3", "src/modular/terminal_chat_modular.py"]
 CMD ["listen", "4444", "changeMe", "Server"]
 ```
 

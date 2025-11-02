@@ -2,7 +2,7 @@
 
 ## ⚠️ Important Security Notice
 
-**Vibe Cozy Chat is designed for PRIVATE NETWORKS ONLY.**
+**Terminal Chat is designed for PRIVATE NETWORKS ONLY.**
 
 This application should **NOT be deployed on the public internet** without significant additional security measures. It is intended for:
 

@@ -1,8 +1,8 @@
-# Test Documentation - Cozy Secure Chat
+# Test Documentation - Terminal Chat
 
 ## Overview
 
-This document describes the test suite for the Cozy Secure Chat application. The test suite consists of 20 comprehensive unit and integration tests that validate the core functionality of the encrypted chat system.
+This document describes the test suite for the Terminal Chat application. The test suite consists of 20 comprehensive unit and integration tests that validate the core functionality of the encrypted chat system.
 
 ## Test File
 
@@ -33,7 +33,7 @@ python3 -m pytest test_chat.py -v
 To run tests with coverage reporting:
 
 ```bash
-python3 -m pytest test_chat.py --cov=cozy_secure_chat --cov-report=html
+python3 -m pytest test_chat.py --cov=terminal_chat --cov-report=html
 ```
 
 ## Test Categories
@@ -185,7 +185,7 @@ If you see OpenSSL-related errors:
 
 If you see import errors:
 - Ensure you're running tests from the correct directory
-- Check that `cozy_secure_chat.py` is in the same directory as `test_chat.py`
+- Check that `terminal_chat.py` is in the same directory as `test_chat.py`
 
 ### Test Failures
 

@@ -1,9 +1,9 @@
 # ============================================
-# Vibe Cozy Chat - Kurzreferenz
+# Terminal Chat - Kurzreferenz
 # ============================================
 #
 # START:
-#   ./bin/vibe-chat.py
+#   ./bin/terminal-chat.py
 #
 # Oder direkt mit Python:
 #   python3 src/main.py listen <Port> <Passwort> [Benutzername]

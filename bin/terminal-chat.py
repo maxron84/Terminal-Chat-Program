@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Vibe Cozy Chat - User-Friendly Launcher
+Terminal Chat - User-Friendly Launcher
 Simple interactive launcher for connecting to encrypted chat rooms
 """
 
@@ -21,7 +21,7 @@ def print_banner():
     """Print welcome banner"""
     print(f"""
 {MAGENTA}╔═══════════════════════════════════════╗
-║     🎨 Vibe Cozy Chat Launcher 🎨    ║
+║     🎨 Terminal Chat Launcher 🎨    ║
 ║   Secure Encrypted Chat Experience   ║
 ╚═══════════════════════════════════════╝{RESET}
 """)

@@ -1,4 +1,4 @@
-# 🎨 Vibe Cozy Chat
+# 🎨 Terminal Chat
 
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -83,7 +83,7 @@ cd Terminal-Chat-Program
 
 **Interactive Mode** (Easiest - Cross-Platform):
 ```bash
-python3 bin/vibe-chat.py
+python3 bin/terminal-chat.py
 ```
 
 **Docker Mode** (Production-Ready):
@@ -96,7 +96,7 @@ nano .env  # Set strong password
 docker-compose up -d
 
 # Connect from any machine
-python3 bin/vibe-chat.py
+python3 bin/terminal-chat.py
 ```
 
 **Troubleshooting Docker:**
@@ -181,7 +181,7 @@ cp confidential.pdf data/outbox/
 ```
 Terminal-Chat-Program/
 ├── bin/
-│   ├── vibe-chat.py        # Interactive launcher (cross-platform) ⭐
+│   ├── terminal-chat.py        # Interactive launcher (cross-platform) ⭐
 │   ├── instructions.txt    # Quick reference (EN)
 │   └── anleitung.txt       # Quick reference (DE)
 ├── src/
@@ -402,7 +402,7 @@ Total              27      ✅ All Pass
 
 ```
 ┌─────────────────────────────────────────┐
-│ Vibe Cozy Chat                          │
+│ Terminal Chat                          │
 ├─────────────────────────────────────────┤
 │ [10:30:15] Alice: Hello everyone!       │
 │ [10:30:20] Bob: Hi Alice!               │

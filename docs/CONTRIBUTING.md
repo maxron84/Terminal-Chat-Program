@@ -1,4 +1,4 @@
-# Contributing to Vibe Cozy Chat
+# Contributing to Terminal Chat
 
 Thank you for your interest in contributing! This project was initially 100% AI-generated using Claude Sonnet 4.5, but we welcome human contributions to make it even better.
 
@@ -210,6 +210,6 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-**Thank you for contributing to Vibe Cozy Chat!** 🎉
+**Thank you for contributing to Terminal Chat!** 🎉
 
 Whether you're fixing a typo or adding a major feature, every contribution makes this project better.

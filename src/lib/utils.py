@@ -1,5 +1,5 @@
 """
-Utility functions and constants for Vibe Cozy Chat
+Utility functions and constants for Terminal Chat
 """
 
 from datetime import datetime
