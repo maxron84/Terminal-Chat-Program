@@ -242,12 +242,21 @@ Errors: 0
 
 ## 📚 Documentation
 
-- **[Quick Start Guide](bin/QUICK_START.txt)** - For beginners
-- **[Schnellstart](bin/SCHNELLSTART.txt)** - Für deutschsprachige Benutzer
-- **[Technical Docs](docs/README.md)** - Full technical documentation
-- **[Architecture](docs/MODULAR_STRUCTURE.md)** - Modular design overview
-- **[Security Assessment](docs/security/SECURITY_ASSESSMENT.md)** - Cloud deployment guide
-- **[Test Documentation](docs/TEST_DOCUMENTATION.md)** - Testing strategy
+### Quick Reference
+- **[Quick Start](bin/QUICK_START.txt)** - Beginner's guide (EN)
+- **[Schnellstart](bin/SCHNELLSTART.txt)** - Anfänger-Anleitung (DE)
+- **[Docker Deployment](docs/DOCKER_DEPLOYMENT.md)** - Container deployment
+
+### Technical Details
+- **[Architecture](docs/MODULAR_STRUCTURE.md)** - Code structure
+- **[Testing](docs/TEST_DOCUMENTATION.md)** - Test strategy
+- **[Security](docs/SECURITY.md)** - Security policy
+- **[Contributing](docs/CONTRIBUTING.md)** - Contribution guide
+- **[Changelog](docs/CHANGELOG.md)** - Version history
+
+### User Guides
+- **[Commands (EN)](docs/usage_en.txt)** - Command reference
+- **[Befehle (DE)](docs/usage_de.txt)** - Befehlsreferenz
 
 ## 🔒 Security Features
 
@@ -329,24 +338,6 @@ The project follows PEP 8 guidelines with:
 - Max line length: 100 characters
 - Docstrings for all functions/classes
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Contribution Ideas
-- 🔐 TLS/SSL transport encryption
-- 🔑 User authentication system
-- 📱 GUI client
-- 🌍 Additional language support
-- 🎨 Customizable themes
-- 📊 Statistics/analytics
-- 🔔 Desktop notifications
 
 ## 📊 Test Coverage
 
@@ -447,12 +438,46 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Mobile apps
 - [ ] Plugin system
 
-## ⭐ Star History
+## 🤝 Contributing
+
+Contributions welcome! Please:
+- Fork the repo and create a feature branch
+- Run tests before submitting PR
+- Follow PEP 8 style guidelines
+- Update documentation as needed
+
+See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines.
+
+## 🔒 Security
+
+**Report vulnerabilities** via GitHub Security Advisories (not public issues).
+
+This project is for **private networks only**. It lacks:
+- TLS/SSL transport encryption
+- Rate limiting
+- Enterprise-grade security features
+
+See [SECURITY.md](docs/SECURITY.md) for full security policy.
+
+## 📋 Changelog
+
+### v1.0.0 (2025-11-02)
+- Initial release
+- Multi-client encrypted chat
+- Private file sharing
+- Docker deployment
+- 27 passing tests
+
+See [CHANGELOG.md](docs/CHANGELOG.md) for detailed version history.
+
+---
+
+## ⭐ Star This Project
 
 If you find this project useful, please consider giving it a star!
 
 ---
 
-Made with ❤️ by the Vibe Cozy Chat team
+Made with ❤️ by AI (Claude Sonnet 4.5) + Human prompts
 
 **Happy Chatting! 🎉**
