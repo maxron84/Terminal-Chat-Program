@@ -63,8 +63,8 @@ services:
       - "com.vibe-chat.environment=production"
       - "com.vibe-chat.version=1.0"
     
-    # Command
-    command: ["listen", "4444", "${CHAT_PASSWORD}", "${SERVER_USERNAME:-ChatServer}"]
+    # Command (use shell form for env var expansion)
+    command: listen 4444 $CHAT_PASSWORD ${SERVER_USERNAME:-ChatServer}
 
 # Networks
 networks:
