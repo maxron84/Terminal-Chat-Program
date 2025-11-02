@@ -44,20 +44,15 @@ def main():
         icon = None
     
     # PyInstaller command
+    # We need to add src to the Python path for imports to work
     cmd = [
         "pyinstaller",
         "--onefile",  # Single executable
         "--name", output_name,
         "--clean",  # Clean PyInstaller cache
+        "--paths", "src",  # Add src to Python path
         "--add-data", f"src{os.pathsep}src",  # Include src directory
         "--add-data", f"bin{os.pathsep}bin",  # Include bin directory
-        "--hidden-import", "lib",
-        "--hidden-import", "lib.client",
-        "--hidden-import", "lib.server",
-        "--hidden-import", "lib.encryption",
-        "--hidden-import", "lib.translations",
-        "--hidden-import", "lib.utils",
-        "--hidden-import", "lib.file_permissions",
         "bin/terminal-chat.py"
     ]
     

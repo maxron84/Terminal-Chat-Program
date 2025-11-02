@@ -67,3 +67,8 @@ docker-compose.override.yml
 
 # Prevent src/data recreation
 src/data/
+
+# Distribution files
+dist/
+build/
+*.spec
