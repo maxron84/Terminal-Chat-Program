@@ -372,7 +372,7 @@ class ChatServer:
         """Handle server-side commands"""
         print(f"{YELLOW}[{timestamp()}] Server username: {self.username}{RESET}",
               file=sys.stderr)
-        print(f"{YELLOW}[{timestamp()}] Commands: /inbox, /outbox, /list, /upload <file>, /download <file>, regular messages, /quit{RESET}",
+        print(f"{YELLOW}[{timestamp()}] Commands: /help, /inbox, /outbox, /list, /upload <file>, /download <file>, /quit{RESET}",
               file=sys.stderr)
         
         try:
@@ -384,6 +384,23 @@ class ChatServer:
                     
                     if msg == '/quit':
                         break
+                    elif msg == '/help':
+                        print(f"{CYAN}╔══════════════════════════════════════════════════════════╗{RESET}")
+                        print(f"{CYAN}║                    AVAILABLE COMMANDS                    ║{RESET}")
+                        print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
+                        print(f"{GREEN}/list{RESET}                → List files in shared folder")
+                        print(f"{GREEN}/inbox{RESET}               → List files in your inbox")
+                        print(f"{GREEN}/outbox{RESET}              → List files in your outbox")
+                        print(f"{GREEN}/upload <file>{RESET}       → Upload file to shared folder (public)")
+                        print(f"{GREEN}/upload <file> @user{RESET} → Upload file privately for specific user")
+                        print(f"{GREEN}/download <file>{RESET}     → Download file from shared or inbox")
+                        print(f"{GREEN}/quit{RESET}                → Exit the chat")
+                        print(f"{GREEN}/help{RESET}                → Show this help message")
+                        print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
+                        print(f"{YELLOW}Regular messages:{RESET} Just type and press Enter to chat")
+                        print(f"{YELLOW}Files:{RESET} Place files in 'data/outbox/' before uploading")
+                        print(f"{CYAN}╚══════════════════════════════════════════════════════════╝{RESET}")
+                        continue
                     elif msg == '/list':
                         files = os.listdir(self.shared_folder)
                         if files:

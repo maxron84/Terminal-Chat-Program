@@ -16,6 +16,7 @@
 #   /list                   → Inhalt des gemeinsamen Ordners anzeigen
 #   /inbox                  → Inhalt des Eingangsordners anzeigen
 #   /outbox                 → Inhalt des Ausgangsordners anzeigen
+#   /help                   → Verfügbare Befehle anzeigen
 #   /quit                   → Chat verlassen
 #   Strg+C                  → Chat verlassen
 #

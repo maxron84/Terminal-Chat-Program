@@ -16,6 +16,7 @@
 #   /list                  → List shared folder contents
 #   /inbox                 → List inbox contents
 #   /outbox                → List outbox contents
+#   /help                  → Show available commands
 #   /quit                  → Exit chat
 #   Ctrl+C                 → Exit chat
 #

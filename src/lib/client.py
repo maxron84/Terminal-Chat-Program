@@ -231,7 +231,7 @@ class ChatClient:
     
     def send_messages(self):
         """Send messages from user input"""
-        print(f"{CYAN}Commands: /upload <file> [@user], /download <file>, /list, /inbox, /outbox, /quit{RESET}")
+        print(f"{CYAN}Commands: /upload <file> [@user], /download <file>, /list, /inbox, /outbox, /help, /quit{RESET}")
         
         try:
             while self.running:
@@ -242,6 +242,23 @@ class ChatClient:
                     
                     if msg == '/quit':
                         break
+                    elif msg == '/help':
+                        print(f"{CYAN}╔══════════════════════════════════════════════════════════╗{RESET}")
+                        print(f"{CYAN}║                    AVAILABLE COMMANDS                    ║{RESET}")
+                        print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
+                        print(f"{GREEN}/list{RESET}                → List files in shared folder")
+                        print(f"{GREEN}/inbox{RESET}               → List files in your inbox")
+                        print(f"{GREEN}/outbox{RESET}              → List files in your outbox")
+                        print(f"{GREEN}/upload <file>{RESET}       → Upload file to shared folder (public)")
+                        print(f"{GREEN}/upload <file> @user{RESET} → Upload file privately for specific user")
+                        print(f"{GREEN}/download <file>{RESET}     → Download file from shared or inbox")
+                        print(f"{GREEN}/quit{RESET}                → Exit the chat")
+                        print(f"{GREEN}/help{RESET}                → Show this help message")
+                        print(f"{CYAN}╠══════════════════════════════════════════════════════════╣{RESET}")
+                        print(f"{YELLOW}Regular messages:{RESET} Just type and press Enter to chat")
+                        print(f"{YELLOW}Files:{RESET} Place files in 'data/outbox/' before uploading")
+                        print(f"{CYAN}╚══════════════════════════════════════════════════════════╝{RESET}")
+                        continue
                     elif msg.startswith('/send '):
                         filename = msg[6:].strip()
                         filepath = os.path.join(self.outbox_folder, filename)
@@ -278,6 +295,17 @@ class ChatClient:
                         if encrypted:
                             self.sock.sendall(encrypted.encode() + b'\n')
                             print(f"{CYAN}[{timestamp()}] Requesting {filename} from shared folder...{RESET}")
+                    elif msg == '/inbox':
+                        files = os.listdir(self.inbox_folder)
+                        if files:
+                            print(f"{CYAN}Inbox contents:{RESET}")
+                            for f in files:
+                                size = os.path.getsize(os.path.join(self.inbox_folder, f))
+                                print(f"  - {f} ({size} bytes)")
+                        else:
+                            print(f"{YELLOW}Inbox is empty{RESET}")
+                            print(f"{CYAN}Downloaded files will appear here{RESET}")
+                        continue
                     elif msg == '/list':
                         cmd = "__CMD_LIST__"
                         encrypted = self.encryption.encrypt(cmd)

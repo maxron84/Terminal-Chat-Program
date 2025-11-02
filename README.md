@@ -130,6 +130,7 @@ Once connected, simply type messages and press Enter:
 | `/list` | List shared files | `/list` | All users |
 | `/inbox` | List received private files | `/inbox` | All users |
 | `/outbox` | List files ready to upload | `/outbox` | All users |
+| `/help` | Show available commands | `/help` | All users |
 | `/quit` | Exit chat | `/quit` | All users |
 
 **Note:** The server (admin) can also receive private files from clients in its inbox folder!
