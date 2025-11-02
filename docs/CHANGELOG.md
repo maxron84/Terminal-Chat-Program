@@ -12,11 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `/inbox` command for clients to view received files
 - Color-coded help menu with comprehensive command list
 - User-friendly command reference accessible in-app
+- `docker-rebuild.sh` script for Docker troubleshooting
 
 ### Fixed
 - Fixed `src/data/` recreation bug in client path calculation
 - Client now correctly uses root `data/` folder (3 levels up instead of 2)
 - Prevented unwanted folder creation during execution
+- **Docker deployment issues fixed:**
+  - Server now detects non-interactive mode (Docker/background)
+  - Fixed stdin reading causing container restarts
+  - Fixed environment variable expansion in docker-compose command
+  - Containers now start and run stably
 
 ### Changed
 - Reorganized documentation structure:

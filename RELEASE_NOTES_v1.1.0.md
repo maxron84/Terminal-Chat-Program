@@ -25,6 +25,12 @@
 - Client now correctly calculates path to root `data/` folder
 - Eliminates unwanted directory structure
 
+#### Fixed Docker Deployment Issues
+- **Server restart loops:** Server now detects non-interactive mode (Docker/background)
+- **Stdin errors:** Fixed EOFError when container runs without terminal
+- **Environment variables:** Fixed command syntax to properly expand `$CHAT_PASSWORD`
+- **Container corruption:** Added `docker-rebuild.sh` script for easy troubleshooting
+
 ### Improvements
 
 #### Documentation Reorganization
@@ -60,6 +66,11 @@ cd Terminal-Chat-Program
 cp .env.example .env
 nano .env  # Set strong password
 docker-compose up -d
+```
+
+**If Docker has issues (restarts/errors):**
+```bash
+./docker-rebuild.sh  # Automated cleanup and rebuild
 ```
 
 ## 🧪 Testing

@@ -99,6 +99,12 @@ docker-compose up -d
 python3 bin/vibe-chat.py
 ```
 
+**Troubleshooting Docker:**
+```bash
+# If containers restart or encounter errors:
+./docker-rebuild.sh
+```
+
 See [Docker Deployment Guide](docs/DOCKER_DEPLOYMENT.md) for complete guide.
 
 **Command Line Mode**:
